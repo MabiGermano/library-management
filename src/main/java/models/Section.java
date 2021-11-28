@@ -17,7 +17,7 @@ public class Section implements Serializable {
             cascade = CascadeType.ALL, orphanRemoval = true)
     private HashSet<Media> medias;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ID_LIBRARY_COLLECTION", referencedColumnName = "id")
+    @JoinColumn(name = "id_library_collection", referencedColumnName = "id")
     private LibraryCollection libraryCollection;
 
     public Long getId() {

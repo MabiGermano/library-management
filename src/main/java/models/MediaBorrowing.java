@@ -12,11 +12,12 @@ public class MediaBorrowing implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_user", referencedColumnName = "id")
     private User user;
     @Column
     private boolean isBorrowed;
-    @OneToMany(mappedBy = "media_borrowing", fetch = FetchType.EAGER,
+    @OneToMany(mappedBy = "mediaBorrowing", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
     private HashSet<Media> medias;
     @Column

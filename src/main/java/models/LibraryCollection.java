@@ -11,7 +11,7 @@ public class LibraryCollection implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "library_collection", fetch = FetchType.EAGER,
+    @OneToMany(mappedBy = "libraryCollection", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Section> sections = new ArrayList<Section>();
 

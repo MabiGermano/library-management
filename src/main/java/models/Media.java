@@ -19,9 +19,15 @@ public abstract class Media implements Serializable {
     @Column
     protected String genre;
     @Column
-    protected String author;
-    @Column
     protected String description;
+    @Column
+    protected int stockQuantity;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_media_borrowing", referencedColumnName = "id")
+    protected MediaBorrowing mediaBorrowing;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_section", referencedColumnName = "id")
+    protected Section section;
 
     public Long getId() {
         return id;
@@ -47,14 +53,6 @@ public abstract class Media implements Serializable {
         this.genre = genre;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -63,16 +61,40 @@ public abstract class Media implements Serializable {
         this.description = description;
     }
 
+    public int getStockQuantity() {
+        return stockQuantity;
+    }
+
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
+    }
+
+    public MediaBorrowing getMediaBorrowing() {
+        return mediaBorrowing;
+    }
+
+    public void setMediaBorrowing(MediaBorrowing mediaBorrowing) {
+        this.mediaBorrowing = mediaBorrowing;
+    }
+
+    public Section getSection() {
+        return section;
+    }
+
+    public void setSection(Section section) {
+        this.section = section;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Media media = (Media) o;
-        return Objects.equals(title, media.title) && Objects.equals(genre, media.genre) && Objects.equals(author, media.author) && Objects.equals(description, media.description);
+        return stockQuantity == media.stockQuantity && Objects.equals(id, media.id) && Objects.equals(title, media.title) && Objects.equals(genre, media.genre) && Objects.equals(description, media.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, genre, author, description);
+        return Objects.hash(id, title, genre, description, stockQuantity);
     }
 }

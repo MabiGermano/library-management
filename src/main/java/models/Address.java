@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "TB_ADRESS")
-public class Adress implements Serializable {
+public class Address implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +20,24 @@ public class Adress implements Serializable {
     private String city;
     @Column
     private String state;
-    @OneToOne
+    @OneToOne(mappedBy = "address")
     private User user;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public String getStreet() {
         return street;

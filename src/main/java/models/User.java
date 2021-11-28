@@ -17,14 +17,18 @@ public class User implements Serializable {
     @Column
     private String cpf;
     @Column
-    private UUID matricula;
+    private UUID registration;
     @Column
-    private String telefone;
-    @OneToOne
-    private Adress adress;
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ID_MEDIA_BORROWING", referencedColumnName = "id")
+    private String tel;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private HashSet<MediaBorrowing> mediaBorrowings;
+    @Column
+    private String email;
 
     public Long getId() {
         return id;
@@ -50,27 +54,43 @@ public class User implements Serializable {
         this.cpf = cpf;
     }
 
-    public UUID getMatricula() {
-        return matricula;
+    public UUID getRegistration() {
+        return registration;
     }
 
-    public void setMatricula(UUID matricula) {
-        this.matricula = matricula;
+    public void setRegistration(UUID registration) {
+        this.registration = registration;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getTel() {
+        return tel;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
-    public Adress getAdress() {
-        return adress;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAdress(Adress adress) {
-        this.adress = adress;
+    public void setAddress(Address adress) {
+        this.address = adress;
+    }
+
+    public HashSet<MediaBorrowing> getMediaBorrowings() {
+        return mediaBorrowings;
+    }
+
+    public void setMediaBorrowings(HashSet<MediaBorrowing> mediaBorrowings) {
+        this.mediaBorrowings = mediaBorrowings;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
