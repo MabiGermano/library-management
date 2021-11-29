@@ -21,7 +21,8 @@ public class AddressRepository {
         try {
             Address address = creatingAddress();
             Address find = findById(1L);
-            System.out.println(find.getStreet());
+            System.out.println("ID Persist: " + address.getStreet());
+            System.out.println("ID Find: " + find.getStreet());
         } finally {
             emf.close();
         }
@@ -29,7 +30,7 @@ public class AddressRepository {
 
     private static Address findById(Long id) {
         EntityManager em = null;
-        Address address = new Address();
+        Address address = null;
         try {
             em = emf.createEntityManager();
             System.out.println("Getting Address from database...");

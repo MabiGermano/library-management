@@ -23,7 +23,9 @@ public class BookRepository {
     public static void main(String[] args) {
         try {
             Book book = creatingBook();
-            System.out.println("ID Book: " + book.getId());
+            Book find = findById(2L);
+            System.out.println("ID Persist: " + book.getId());
+            System.out.println("ID Find: " + find.getId());
         } finally {
             emf.close();
         }
@@ -31,7 +33,7 @@ public class BookRepository {
 
     private static Book findById(Long id) {
         EntityManager em = null;
-        Book book = new Book();
+        Book book = null;
         try {
             em = emf.createEntityManager();
             System.out.println("Getting Book from database...");
