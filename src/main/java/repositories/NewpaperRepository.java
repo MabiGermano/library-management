@@ -55,12 +55,12 @@ public class NewpaperRepository {
 
     public static Newspaper creatingNewspaper(){
         Newspaper newspaper = new Newspaper();
-        newspaper.setTitle("");
+        newspaper.setTitle("Recife promove 1° encontro entre capitais para discutir sobre a realização do Carnaval");
         newspaper.setDescription("");
-        newspaper.setGenre("");
-        newspaper.setOriginState("");
-        newspaper.setPublishingCompany("");
-        newspaper.setReleaseDate(new Date());
+        newspaper.setGenre("Carnaval 2022");
+        newspaper.setOriginState("Pernambuco");
+        newspaper.setPublishingCompany("Diário de pernambuco");
+        newspaper.setReleaseDate(new Date(11-29-2021));
 
         newspaper = insertNewspaper(newspaper);
         return newspaper;

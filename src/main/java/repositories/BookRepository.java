@@ -55,13 +55,13 @@ public class BookRepository {
 
     public static Book creatingBook(){
         Book book = new Book();
-        book.setTitle("");
-        book.setDescription("");
-        book.setGenre("");
-        book.setAuthor("");
-        book.setEdition("");
-        book.setPublishingCompany("");
-        book.setTotalPages(0);
+        book.setTitle("A biblioteca da meia noite");
+        book.setDescription("Best seller do new york times");
+        book.setGenre("Drama");
+        book.setAuthor("Matt Haig");
+        book.setEdition("1º");
+        book.setPublishingCompany("Bertrand Brasil");
+        book.setTotalPages(308);
 
         book = insertBook(book);
 
