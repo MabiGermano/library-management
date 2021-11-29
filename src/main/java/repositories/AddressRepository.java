@@ -26,6 +26,22 @@ public class AddressRepository {
         }
     }
 
+    private static Address findById(Long id) {
+        EntityManager em = null;
+        Address address = new Address();
+        try {
+            em = emf.createEntityManager();
+            System.out.println("Getting Address from database...");
+            address = em.find(Address.class, id);
+            System.out.println(address.toString());
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return address;
+    }
+
     public static Address insertAddress(Address newAddress) {
 
         EntityManager em = null;
