@@ -21,7 +21,7 @@ public class LibraryCollectionRepository {
     public static void main(String[] args) {
         try {
             LibraryCollection libraryCollection = creatingLibraryCollection();
-            System.out.println(libraryCollection.getId());
+            System.out.println("ID LibraryCollection: " + libraryCollection.getId());
         } finally {
             emf.close();
         }

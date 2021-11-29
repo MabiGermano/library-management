@@ -22,7 +22,7 @@ public class NewpaperRepository {
     public static void main(String[] args) {
         try {
             Newspaper newspaper = creatingNewspaper();
-            System.out.println(newspaper.getId());
+            System.out.println("ID Newpaper: " + newspaper.getId());
         } finally {
             emf.close();
         }

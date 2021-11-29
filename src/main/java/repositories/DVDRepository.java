@@ -23,7 +23,7 @@ public class DVDRepository {
     public static void main(String[] args) {
         try {
             DVD dvd = creatingDVD();
-            System.out.println(dvd.getId());
+            System.out.println("ID DVD: " + dvd.getId());
         } finally {
             emf.close();
         }
@@ -59,8 +59,8 @@ public class DVDRepository {
         dvd.setTitle("Harry Potter e a Pedra Filosofal");
         dvd.setArtist("Steven Kloves");
         dvd.setDuration(152);
-        dvd.setYear("2001");
-        dvd.setDescription("Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursleys. Ele recebe uma carta contendo um convite para ingressar em Hogwarts, uma famosa escola especializada em formar jovens bruxos. Inicialmente, Harry é impedido de ler a carta por seu tio, mas logo recebe a visita de Hagrid, o guarda-caça de Hogwarts, que chega para levá-lo até a escola.");
+        dvd.setYearOfDvd("2001");
+        dvd.setDescription("Harry Potter é um garoto órfão");
         dvd.setGenre("Fantasia");
         dvd.setStockQuantity(3);
 

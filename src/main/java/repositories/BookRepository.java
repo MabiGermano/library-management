@@ -22,7 +22,7 @@ public class BookRepository {
     public static void main(String[] args) {
         try {
             Book book = creatingBook();
-            System.out.println(book.getId());
+            System.out.println("ID Book: " + book.getId());
         } finally {
             emf.close();
         }

@@ -26,7 +26,7 @@ public class SectionRepository {
     public static void main(String[] args) {
         try {
             Section section = creatingSection();
-            System.out.println(section.getId());
+            System.out.println("ID da section: " + section.getId());
         } finally {
             emf.close();
         }

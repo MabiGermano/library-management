@@ -23,7 +23,7 @@ public class MediaBorrowingRepository {
     public static void main(String[] args) {
         try {
             MediaBorrowing mediaBorrowing = creatingMediaBorrowing();
-            System.out.println(mediaBorrowing.getId());
+            System.out.println("ID MediaBorrowing: " + mediaBorrowing.getId());
         } finally {
             emf.close();
         }

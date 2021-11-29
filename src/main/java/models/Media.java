@@ -8,7 +8,7 @@ import java.util.Objects;
 @Table(name = "TB_MEDIA")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "DISC_MEDIA",
-        discriminatorType = DiscriminatorType.STRING, length = 1)
+        discriminatorType = DiscriminatorType.STRING, length = 10)
 public abstract class Media implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

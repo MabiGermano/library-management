@@ -15,7 +15,7 @@ public class DVD extends Media implements Serializable {
     @Column
     private int duration;
     @Column
-    private String year;
+    private String yearOfDvd;
 
     public String getArtist() {
         return artist;
@@ -33,12 +33,12 @@ public class DVD extends Media implements Serializable {
         this.duration = duration;
     }
 
-    public String getYear() {
-        return year;
+    public String getYearOfDvd() {
+        return yearOfDvd;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setYearOfDvd(String yearOfDvd) {
+        this.yearOfDvd = yearOfDvd;
     }
 
     @Override
@@ -47,11 +47,11 @@ public class DVD extends Media implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         DVD dvd = (DVD) o;
-        return duration == dvd.duration && artist.equals(dvd.artist) && year.equals(dvd.year);
+        return duration == dvd.duration && artist.equals(dvd.artist) && yearOfDvd.equals(dvd.yearOfDvd);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), artist, duration, year);
+        return Objects.hash(super.hashCode(), artist, duration, yearOfDvd);
     }
 }
