@@ -1,21 +1,17 @@
 package repositories;
 
 import models.Book;
-import models.DVD;
-import models.Media;
-import models.Section;
+import models.Newspaper;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class SectionRepository {
+public class BookRepository {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("library-management");
     private static final Logger logger = Logger.getGlobal();
 
@@ -25,21 +21,21 @@ public class SectionRepository {
 
     public static void main(String[] args) {
         try {
-            Section section = creatingSection();
-            System.out.println(section.getId());
+            Book book = creatingBook();
+            System.out.println(book.getId());
         } finally {
             emf.close();
         }
     }
 
-    public static Section insertSection(Section section){
+    public static Book insertBook(Book book){
         EntityManager em = null;
         EntityTransaction et = null;
         try {
             em = emf.createEntityManager();
             et = em.getTransaction();
             et.begin();
-            section = em.merge(section);
+            book = em.merge(book);
             et.commit();
         } catch (Exception ex) {
             if (et != null && et.isActive()) {
@@ -54,35 +50,21 @@ public class SectionRepository {
             }
         }
 
-        return section;
+        return book;
     }
 
-    public static Section creatingSection(){
-        Section section = new Section();
-        section.setTitle("Algum titulo");
-        section.setMedias(creatingMedias());
+    public static Book creatingBook(){
+        Book book = new Book();
+        book.setTitle("");
+        book.setDescription("");
+        book.setGenre("");
+        book.setAuthor("");
+        book.setEdition("");
+        book.setPublishingCompany("");
+        book.setTotalPages(0);
 
-        section = insertSection(section);
-        return section;
+        book = insertBook(book);
+
+        return book;
     }
-
-    public static List<Section> creatingListSection(){
-        List<Section> sections = new ArrayList<>();
-
-        sections.add(creatingSection());
-        sections.add(creatingSection());
-        sections.add(creatingSection());
-
-        return sections;
-    }
-
-    public static HashSet<Media> creatingMedias(){
-        HashSet medias = new HashSet();
-        medias.add(DVDRepository.creatingDVD());
-        medias.add(BookRepository.creatingBook());
-        medias.add(NewpaperRepository.creatingNewspaper());
-
-        return medias;
-    }
-
 }

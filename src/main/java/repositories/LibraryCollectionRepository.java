@@ -20,13 +20,14 @@ public class LibraryCollectionRepository {
 
     public static void main(String[] args) {
         try {
-            Long id = insertLibraryCollection(creatingLibraryCollection());
+            LibraryCollection libraryCollection = creatingLibraryCollection();
+            System.out.println(libraryCollection.getId());
         } finally {
             emf.close();
         }
     }
 
-    public static Long insertLibraryCollection(LibraryCollection libraryCollection){
+    public static LibraryCollection insertLibraryCollection(LibraryCollection libraryCollection){
         EntityManager em = null;
         EntityTransaction et = null;
         try {
@@ -48,14 +49,18 @@ public class LibraryCollectionRepository {
             }
         }
 
-        return libraryCollection.getId();
+        return libraryCollection;
     }
 
     public static LibraryCollection creatingLibraryCollection(){
         LibraryCollection libraryCollection = new LibraryCollection();
         libraryCollection.setSections(SectionRepository.creatingListSection());
 
-        libraryCollection.getSections().forEach(section -> section.setLibraryCollection(libraryCollection));
+        for (Section section : libraryCollection.getSections()){
+            section.setLibraryCollection(libraryCollection);
+        }
+
+        libraryCollection = insertLibraryCollection(libraryCollection);
 
         return libraryCollection;
     }

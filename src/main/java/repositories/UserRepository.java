@@ -1,21 +1,16 @@
 package repositories;
 
-import models.Book;
-import models.DVD;
-import models.Media;
-import models.Section;
+import models.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class SectionRepository {
+public class UserRepository {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("library-management");
     private static final Logger logger = Logger.getGlobal();
 
@@ -25,21 +20,21 @@ public class SectionRepository {
 
     public static void main(String[] args) {
         try {
-            Section section = creatingSection();
-            System.out.println(section.getId());
+            User user = creatingUser();
+            System.out.println(user.getId());
         } finally {
             emf.close();
         }
     }
 
-    public static Section insertSection(Section section){
+    public static User insertUser(User user){
         EntityManager em = null;
         EntityTransaction et = null;
         try {
             em = emf.createEntityManager();
             et = em.getTransaction();
             et.begin();
-            section = em.merge(section);
+            user = em.merge(user);
             et.commit();
         } catch (Exception ex) {
             if (et != null && et.isActive()) {
@@ -54,35 +49,19 @@ public class SectionRepository {
             }
         }
 
-        return section;
+        return user;
     }
 
-    public static Section creatingSection(){
-        Section section = new Section();
-        section.setTitle("Algum titulo");
-        section.setMedias(creatingMedias());
+    public static User creatingUser(){
+        User user = new User();
+        user.setAddress(AddressRepository.creatingAddress());
+        user.setCpf("908.507.040-65");
+        user.setEmail("teste@teste.com.br");
+        user.setName("Usuário de teste");
+        user.setRegistration(UUID.randomUUID());
+        user.setTel("(81) 98811-6934");
 
-        section = insertSection(section);
-        return section;
+        user = insertUser(user);
+        return user;
     }
-
-    public static List<Section> creatingListSection(){
-        List<Section> sections = new ArrayList<>();
-
-        sections.add(creatingSection());
-        sections.add(creatingSection());
-        sections.add(creatingSection());
-
-        return sections;
-    }
-
-    public static HashSet<Media> creatingMedias(){
-        HashSet medias = new HashSet();
-        medias.add(DVDRepository.creatingDVD());
-        medias.add(BookRepository.creatingBook());
-        medias.add(NewpaperRepository.creatingNewspaper());
-
-        return medias;
-    }
-
 }

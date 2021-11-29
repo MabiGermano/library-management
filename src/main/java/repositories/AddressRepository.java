@@ -19,13 +19,14 @@ public class AddressRepository {
 
     public static void main(String[] args) {
         try {
-            Long id = insertAddress(AddressRepository.creatingAddress());
+            Address address = creatingAddress();
+            System.out.println(address.getId());
         } finally {
             emf.close();
         }
     }
 
-    public static Long insertAddress(Address newAddress) {
+    public static Address insertAddress(Address newAddress) {
 
         EntityManager em = null;
         EntityTransaction et = null;
@@ -33,7 +34,7 @@ public class AddressRepository {
             em = emf.createEntityManager();
             et = em.getTransaction();
             et.begin();
-            em.persist(newAddress);
+            newAddress = em.merge(newAddress);
             et.commit();
         } catch (Exception ex) {
             if (et != null && et.isActive()) {
@@ -48,7 +49,7 @@ public class AddressRepository {
             }
         }
 
-        return newAddress.getId();
+        return newAddress;
     }
 
     public static Address creatingAddress() {
@@ -58,6 +59,8 @@ public class AddressRepository {
         newAddress.setCity("Recife");
         newAddress.setState("Pernambuco");
         newAddress.setNumber(550);
+
+        newAddress = insertAddress(newAddress);
         return newAddress;
     }
 }
