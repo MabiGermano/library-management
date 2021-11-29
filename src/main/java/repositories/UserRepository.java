@@ -1,5 +1,6 @@
 package repositories;
 
+import models.Address;
 import models.User;
 
 import javax.persistence.EntityManager;
@@ -25,6 +26,22 @@ public class UserRepository {
         } finally {
             emf.close();
         }
+    }
+
+    private static User findById(Long id) {
+        EntityManager em = null;
+        User user = new User();
+        try {
+            em = emf.createEntityManager();
+            System.out.println("Getting User from database...");
+            user = em.find(User.class, id);
+            System.out.println(user.toString());
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return user;
     }
 
     public static User insertUser(User user){
