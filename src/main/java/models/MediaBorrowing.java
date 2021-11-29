@@ -13,7 +13,7 @@ public class MediaBorrowing implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_user", referencedColumnName = "id")
+    @JoinColumn(name = "ID_USER", referencedColumnName = "ID")
     private User user;
     @Column
     private boolean isBorrowed;

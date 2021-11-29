@@ -21,7 +21,7 @@ public class User implements Serializable {
     @Column
     private String tel;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    @JoinColumn(name = "ID_ADDRESS", referencedColumnName = "ID")
     private Address address;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,

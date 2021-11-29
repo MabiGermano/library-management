@@ -6,10 +6,9 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "TB_MEDIA")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "DISC_MEDIA",
         discriminatorType = DiscriminatorType.STRING, length = 1)
-@Access(AccessType.FIELD)
 public abstract class Media implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,10 +22,10 @@ public abstract class Media implements Serializable {
     @Column
     protected int stockQuantity;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_media_borrowing", referencedColumnName = "id")
+    @JoinColumn(referencedColumnName = "ID")
     protected MediaBorrowing mediaBorrowing;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_section", referencedColumnName = "id")
+    @JoinColumn(referencedColumnName = "ID")
     protected Section section;
 
     public Long getId() {
