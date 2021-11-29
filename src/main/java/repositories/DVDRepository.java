@@ -1,5 +1,6 @@
 package repositories;
 
+import models.Address;
 import models.DVD;
 import models.Media;
 import models.User;
@@ -27,6 +28,22 @@ public class DVDRepository {
         } finally {
             emf.close();
         }
+    }
+
+    private static DVD findById(Long id) {
+        EntityManager em = null;
+        DVD dvd = new DVD();
+        try {
+            em = emf.createEntityManager();
+            System.out.println("Getting DVD from database...");
+            dvd = em.find(DVD.class, id);
+            System.out.println(dvd.toString());
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return dvd;
     }
 
     public static DVD insertDVD(DVD dvd){
