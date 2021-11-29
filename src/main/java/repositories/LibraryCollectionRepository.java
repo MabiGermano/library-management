@@ -1,5 +1,6 @@
 package repositories;
 
+import models.Address;
 import models.LibraryCollection;
 import models.Section;
 
@@ -25,6 +26,22 @@ public class LibraryCollectionRepository {
         } finally {
             emf.close();
         }
+    }
+
+    private static LibraryCollection findById(Long id) {
+        EntityManager em = null;
+        LibraryCollection libraryCollection = new LibraryCollection();
+        try {
+            em = emf.createEntityManager();
+            System.out.println("Getting Library Collection from database...");
+            libraryCollection = em.find(LibraryCollection.class, id);
+            System.out.println(libraryCollection.toString());
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return libraryCollection;
     }
 
     public static LibraryCollection insertLibraryCollection(LibraryCollection libraryCollection){

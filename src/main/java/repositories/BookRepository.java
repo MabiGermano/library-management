@@ -1,5 +1,6 @@
 package repositories;
 
+import models.Address;
 import models.Book;
 import models.Newspaper;
 
@@ -26,6 +27,22 @@ public class BookRepository {
         } finally {
             emf.close();
         }
+    }
+
+    private static Book findById(Long id) {
+        EntityManager em = null;
+        Book book = new Book();
+        try {
+            em = emf.createEntityManager();
+            System.out.println("Getting Book from database...");
+            book = em.find(Book.class, id);
+            System.out.println(book.toString());
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return book;
     }
 
     public static Book insertBook(Book book){
