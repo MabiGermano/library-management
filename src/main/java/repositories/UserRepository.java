@@ -22,6 +22,7 @@ public class UserRepository {
     public static void main(String[] args) {
         try {
             User user = creatingUser();
+            User find = findById(1L);
             System.out.println("ID User: " + user.getId());
         } finally {
             emf.close();

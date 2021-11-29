@@ -20,7 +20,8 @@ public class AddressRepository {
     public static void main(String[] args) {
         try {
             Address address = creatingAddress();
-            System.out.println("Id Address: " + address.getId());
+            Address find = findById(1L);
+            System.out.println(find.getStreet());
         } finally {
             emf.close();
         }
