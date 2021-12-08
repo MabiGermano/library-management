@@ -13,19 +13,21 @@ public abstract class Media implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
-    @Column
+    @Column(name = "TITLE")
     protected String title;
-    @Column
+    @Column(name = "GENRE")
     protected String genre;
-    @Column
+    @Column(name = "DESCRIPTION")
     protected String description;
-    @Column
+    @Column(name = "STOCK_QUALITY")
     protected int stockQuantity;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(referencedColumnName = "ID")
+    //TODO: verificar como colocar name aqui
     protected MediaBorrowing mediaBorrowing;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(referencedColumnName = "ID")
+    //TODO: verificar como colocar name aqui
     protected Section section;
 
     public Long getId() {
@@ -95,5 +97,18 @@ public abstract class Media implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id, title, genre, description, stockQuantity);
+    }
+
+    @Override
+    public String toString() {
+        return "Media{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", genre='" + genre + '\'' +
+                ", description='" + description + '\'' +
+                ", stockQuantity=" + stockQuantity +
+                ", mediaBorrowing=" + mediaBorrowing +
+                ", section=" + section +
+                '}';
     }
 }

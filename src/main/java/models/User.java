@@ -3,6 +3,7 @@ package models;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -12,22 +13,23 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(name = "NAME")
     private String name;
-    @Column
+    @Column(name = "CPF")
     private String cpf;
-    @Column
+    @Column(name = "REGISTRATION")
     private UUID registration;
-    @Column
+    @Column(name = "TEL")
     private String tel;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_ADDRESS", referencedColumnName = "ID")
+    //TODO: verificar como colocar name aqui
     private Address address;
-
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL, orphanRemoval = true)
+    //TODO: verificar como colocar name aqui
     private HashSet<MediaBorrowing> mediaBorrowings;
-    @Column
+    @Column(name = "EMAIL")
     private String email;
 
     public Long getId() {
@@ -92,5 +94,18 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(cpf, user.cpf) && Objects.equals(registration, user.registration) && Objects.equals(tel, user.tel) && Objects.equals(address, user.address) && Objects.equals(mediaBorrowings, user.mediaBorrowings) && Objects.equals(email, user.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, cpf, registration, tel, address, mediaBorrowings, email);
     }
 }

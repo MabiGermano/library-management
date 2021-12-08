@@ -11,11 +11,11 @@ import java.util.Objects;
 @PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID")
 public class Newspaper extends Media implements Serializable {
 
-    @Column
+    @Column(name = "PUBLISHING_COMPANY")
     private String publishingCompany;
-    @Column
+    @Column(name = "RELEASE_DATE")
     private Date releaseDate;
-    @Column
+    @Column(name = "ORIGIN_STATE")
     private String originState;
 
     public String getPublishingCompany() {
@@ -54,5 +54,14 @@ public class Newspaper extends Media implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), publishingCompany, releaseDate, originState);
+    }
+
+    @Override
+    public String toString() {
+        return "Newspaper{" +
+                "publishingCompany='" + publishingCompany + '\'' +
+                ", releaseDate=" + releaseDate +
+                ", originState='" + originState + '\'' +
+                '}';
     }
 }

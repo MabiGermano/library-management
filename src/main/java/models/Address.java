@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "TB_ADRESS")
@@ -10,17 +11,18 @@ public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+    @Column(name="STREET")
     private String street;
-    @Column
+    @Column(name="NUMBER")
     private int number;
-    @Column
+    @Column(name="ZIP_CODE")
     private String zipCode;
-    @Column
+    @Column(name="CITY")
     private String city;
-    @Column
+    @Column(name="STATE")
     private String state;
     @OneToOne(mappedBy = "address")
+    // TODO: verificar como colocar name aqui
     private User user;
 
     public Long getId() {
@@ -77,5 +79,31 @@ public class Address implements Serializable {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return number == address.number && Objects.equals(id, address.id) && Objects.equals(street, address.street) && Objects.equals(zipCode, address.zipCode) && Objects.equals(city, address.city) && Objects.equals(state, address.state) && Objects.equals(user, address.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, street, number, zipCode, city, state, user);
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", street='" + street + '\'' +
+                ", number=" + number +
+                ", zipCode='" + zipCode + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", user=" + user +
+                '}';
     }
 }

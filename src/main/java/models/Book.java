@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -10,13 +11,14 @@ import java.util.Objects;
 @PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID")
 public class Book extends Media implements Serializable {
 
-    @Column
+    @Column(name="TOTAL_PAGES")
     private int totalPages;
-    @Column
-    private String author;
-    @Column
+    @ManyToMany(mappedBy = "books")
+    // TODO: verificar como coloca name aqui
+    private List<Author> authors;
+    @Column(name = "EDITION")
     private String edition;
-    @Column
+    @Column(name="PUBLISHING_COMPANY")
     private String publishingCompany;
 
     public int getTotalPages() {
@@ -27,12 +29,12 @@ public class Book extends Media implements Serializable {
         this.totalPages = totalPages;
     }
 
-    public String getAuthor() {
-        return author;
+    public List<Author> getAuthors() {
+        return authors;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
     }
 
     public String getEdition() {
@@ -57,11 +59,21 @@ public class Book extends Media implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Book book = (Book) o;
-        return totalPages == book.totalPages && author.equals(book.author) && edition.equals(book.edition) && publishingCompany.equals(book.publishingCompany);
+        return totalPages == book.totalPages && Objects.equals(authors, book.authors) && Objects.equals(edition, book.edition) && Objects.equals(publishingCompany, book.publishingCompany);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), totalPages, author, edition, publishingCompany);
+        return Objects.hash(super.hashCode(), totalPages, authors, edition, publishingCompany);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "totalPages=" + totalPages +
+                ", authors=" + authors +
+                ", edition='" + edition + '\'' +
+                ", publishingCompany='" + publishingCompany + '\'' +
+                '}';
     }
 }

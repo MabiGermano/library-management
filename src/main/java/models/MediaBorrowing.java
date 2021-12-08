@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Objects;
 
 @Entity
 @Table(name = "TB_MEDIA_BORROWING")
@@ -14,15 +15,17 @@ public class MediaBorrowing implements Serializable {
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ID_USER", referencedColumnName = "ID")
+    //TODO: verificar como colocar name aqui
     private User user;
-    @Column
+    @Column(name = "IS_BORROWED")
     private boolean isBorrowed;
     @OneToMany(mappedBy = "mediaBorrowing", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
+    //TODO: verificar como colocar name aqui
     private HashSet<Media> medias;
-    @Column
+    @Column(name = "CREATED_AT")
     private Date createdAt;
-    @Column
+    @Column(name = "UPDATED_AT")
     private Date updatedAt;
 
     public Long getId() {
@@ -71,5 +74,30 @@ public class MediaBorrowing implements Serializable {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MediaBorrowing that = (MediaBorrowing) o;
+        return isBorrowed == that.isBorrowed && Objects.equals(id, that.id) && Objects.equals(user, that.user) && Objects.equals(medias, that.medias) && Objects.equals(createdAt, that.createdAt) && Objects.equals(updatedAt, that.updatedAt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user, isBorrowed, medias, createdAt, updatedAt);
+    }
+
+    @Override
+    public String toString() {
+        return "MediaBorrowing{" +
+                "id=" + id +
+                ", user=" + user +
+                ", isBorrowed=" + isBorrowed +
+                ", medias=" + medias +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }

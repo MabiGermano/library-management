@@ -10,11 +10,11 @@ import java.util.Objects;
 @PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID")
 public class DVD extends Media implements Serializable {
 
-    @Column
+    @Column(name="ARTIST")
     private String artist;
-    @Column
+    @Column(name="DURATION")
     private int duration;
-    @Column
+    @Column(name = "YEAR_OF_DVD")
     private String yearOfDvd;
 
     public String getArtist() {
@@ -53,5 +53,12 @@ public class DVD extends Media implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), artist, duration, yearOfDvd);
+    }
+
+    @Override
+    public String toString() {
+        return "DVD{" +
+                "id=" + id +
+                '}';
     }
 }
