@@ -3,6 +3,7 @@ package repositories;
 import models.LibraryCollection;
 import models.MediaBorrowing;
 import models.Section;
+import models.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -23,10 +24,28 @@ public class MediaBorrowingRepository {
     public static void main(String[] args) {
         try {
             MediaBorrowing mediaBorrowing = creatingMediaBorrowing();
-            System.out.println("ID MediaBorrowing: " + mediaBorrowing.getId());
+            MediaBorrowing find = findById(1L);
+            System.out.println("ID Persist: " + mediaBorrowing.getId());
+            System.out.println("ID Find: " + find.getId());
         } finally {
             emf.close();
         }
+    }
+
+    private static MediaBorrowing findById(Long id) {
+        EntityManager em = null;
+        MediaBorrowing mediaBorrowing = null;
+        try {
+            em = emf.createEntityManager();
+            System.out.println("Getting User from database...");
+            mediaBorrowing = em.find(MediaBorrowing.class, id);
+            System.out.println(mediaBorrowing.toString());
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return mediaBorrowing;
     }
 
     public static MediaBorrowing insertMediaBorrowing(MediaBorrowing mediaBorrowing){

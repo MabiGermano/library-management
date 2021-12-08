@@ -1,9 +1,6 @@
 package repositories;
 
-import models.Book;
-import models.DVD;
-import models.Media;
-import models.Section;
+import models.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -26,10 +23,28 @@ public class SectionRepository {
     public static void main(String[] args) {
         try {
             Section section = creatingSection();
-            System.out.println("ID da section: " + section.getId());
+            Section find = findById(1L);
+            System.out.println("ID da Persist: " + section.getId());
+            System.out.println("ID da Find: " + find.getId());
         } finally {
             emf.close();
         }
+    }
+
+    private static Section findById(Long id) {
+        EntityManager em = null;
+        Section section = null;
+        try {
+            em = emf.createEntityManager();
+            System.out.println("Getting User from database...");
+            section = em.find(Section.class, id);
+            System.out.println(section.toString());
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return section;
     }
 
     public static Section insertSection(Section section){

@@ -22,7 +22,9 @@ public class LibraryCollectionRepository {
     public static void main(String[] args) {
         try {
             LibraryCollection libraryCollection = creatingLibraryCollection();
-            System.out.println("ID LibraryCollection: " + libraryCollection.getId());
+            LibraryCollection find = findById(1L);
+            System.out.println("ID Persist: " + libraryCollection.getId());
+            System.out.println("ID Find: " + find.getId());
         } finally {
             emf.close();
         }

@@ -24,7 +24,9 @@ public class DVDRepository {
     public static void main(String[] args) {
         try {
             DVD dvd = creatingDVD();
-            System.out.println("ID DVD: " + dvd.getId());
+            DVD find = findById(1L);
+            System.out.println("ID Persist: " + dvd.getId());
+            System.out.println("ID Find: " + find.getId());
         } finally {
             emf.close();
         }

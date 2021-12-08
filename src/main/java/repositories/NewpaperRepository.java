@@ -1,6 +1,7 @@
 package repositories;
 
 import models.DVD;
+import models.MediaBorrowing;
 import models.Newspaper;
 
 import javax.persistence.EntityManager;
@@ -22,10 +23,28 @@ public class NewpaperRepository {
     public static void main(String[] args) {
         try {
             Newspaper newspaper = creatingNewspaper();
-            System.out.println("ID Newpaper: " + newspaper.getId());
+            Newspaper find = findById(3L);
+            System.out.println("ID Persist: " + newspaper.getId());
+            System.out.println("ID Find: " + find.getId());
         } finally {
             emf.close();
         }
+    }
+
+    private static Newspaper findById(Long id) {
+        EntityManager em = null;
+        Newspaper newspaper = null;
+        try {
+            em = emf.createEntityManager();
+            System.out.println("Getting User from database...");
+            newspaper = em.find(Newspaper.class, id);
+            System.out.println(newspaper.toString());
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return newspaper;
     }
 
     public static Newspaper insertNewspaper(Newspaper newspaper){
