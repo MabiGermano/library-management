@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a447f6-1698-4cdd-89dd-4f9b248b9fae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Author.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/repositories/AddressRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/DVD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/DVD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/LibraryCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/LibraryCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/MediaBorrowing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/MediaBorrowing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Newspaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Newspaper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Section.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/BookRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/repositories/AddressRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/AddressRepository.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +45,7 @@
       <map>
         <entry key="JPA Inspector" value="false" />
         <entry key="JPA Palette" value="false" />
-        <entry key="JPA Structure" value="true" />
+        <entry key="JPA Structure" value="false" />
       </map>
     </option>
   </component>
@@ -78,7 +70,7 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.AddressRepositoryTest.insertAddress">
     <configuration name="AddressRepository" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="repositories.AddressRepository" />
       <module name="library-management" />
@@ -128,8 +120,25 @@
       <setting name="focusEditor" value="false" />
       <method v="2" />
     </configuration>
+    <configuration name="AddressRepositoryTest.insertAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="library-management" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="repositories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="repositories" />
+      <option name="MAIN_CLASS_NAME" value="repositories.AddressRepositoryTest" />
+      <option name="METHOD_NAME" value="insertAddress" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AddressRepositoryTest.insertAddress" />
         <item itemvalue="Application.AddressRepository" />
       </list>
     </recent_temporary>
