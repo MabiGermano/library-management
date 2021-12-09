@@ -16,7 +16,7 @@ public class UsuarioTeste {
     @BeforeClass
     public static void setUpClass() {
         emf = Persistence.createEntityManagerFactory("library_management");
-        DbUnitUtil.inserirDados();
+//        DbUnitUtil.inserirDados();
     }
 
     @AfterClass

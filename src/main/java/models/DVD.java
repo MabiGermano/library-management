@@ -7,7 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name="TB_DVD")
 @DiscriminatorValue(value = "DVD")
-@PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID")
+@PrimaryKeyJoinColumn(name="ID_DVD", referencedColumnName = "ID_MEDIA")
 public class DVD extends Media implements Serializable {
 
     @Column(name="ARTIST")

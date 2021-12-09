@@ -28,7 +28,7 @@ public class AddressRepository {
         }
     }
 
-    private static Address findById(Long id) {
+    public static Address findById(Long id) {
         EntityManager em = null;
         Address address = null;
         try {

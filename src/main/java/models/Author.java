@@ -7,10 +7,11 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "TB_LIBRARY_COLLECTION")
+@Table(name = "TB_AUTHOR")
 public class Author implements Serializable {
 
     @Id
+    @Column(name = "ID_AUTHOR")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "NAME")

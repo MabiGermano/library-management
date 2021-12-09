@@ -14,7 +14,7 @@ public class DbUnitUtil {
 
     private static final String XML_FILE = "/dbunit/dataset.xml";
 
-    public static void inserirDados() {
+    public static void insertDefaultData() {
         Connection conn = null;
         IDatabaseConnection db_conn = null;
         try {

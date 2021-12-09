@@ -84,7 +84,7 @@ public class BookRepository {
         book.setTitle("A biblioteca da meia noite");
         book.setDescription("Best seller do new york times");
         book.setGenre("Drama");
-        book.setAuthors(authors);
+//        book.setAuthors(authors);
         book.setEdition("1º");
         book.setPublishingCompany("Bertrand Brasil");
         book.setTotalPages(308);

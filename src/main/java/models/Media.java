@@ -1,5 +1,7 @@
 package models;
 
+import com.sun.jdi.NativeMethodException;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,6 +13,7 @@ import java.util.Objects;
         discriminatorType = DiscriminatorType.STRING, length = 10)
 public abstract class Media implements Serializable {
     @Id
+    @Column(name = "ID_MEDIA")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     @Column(name = "TITLE")
@@ -19,7 +22,7 @@ public abstract class Media implements Serializable {
     protected String genre;
     @Column(name = "DESCRIPTION")
     protected String description;
-    @Column(name = "STOCK_QUALITY")
+    @Column(name = "STOCK_QUANTITY")
     protected int stockQuantity;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ID_MEDIA_BORROWING", referencedColumnName = "ID")

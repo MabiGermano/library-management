@@ -8,14 +8,14 @@ import java.util.Objects;
 @Entity
 @Table(name="TB_BOOK")
 @DiscriminatorValue(value = "BOOK")
-@PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID")
+@PrimaryKeyJoinColumn(name="ID_BOOK", referencedColumnName = "ID_MEDIA")
 public class Book extends Media implements Serializable {
 
     @Column(name="TOTAL_PAGES")
     private int totalPages;
-    @ManyToMany(mappedBy = "books")
+//    @ManyToMany(mappedBy = "books")
     // TODO: verificar como coloca name aqui
-    private List<Author> authors;
+//    private List<Author> authors;
     @Column(name = "EDITION")
     private String edition;
     @Column(name="PUBLISHING_COMPANY")
@@ -29,13 +29,13 @@ public class Book extends Media implements Serializable {
         this.totalPages = totalPages;
     }
 
-    public List<Author> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(List<Author> authors) {
-        this.authors = authors;
-    }
+//    public List<Author> getAuthors() {
+//        return authors;
+//    }
+//
+//    public void setAuthors(List<Author> authors) {
+//        this.authors = authors;
+//    }
 
     public String getEdition() {
         return edition;
@@ -59,19 +59,18 @@ public class Book extends Media implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Book book = (Book) o;
-        return totalPages == book.totalPages && Objects.equals(authors, book.authors) && Objects.equals(edition, book.edition) && Objects.equals(publishingCompany, book.publishingCompany);
+        return totalPages == book.totalPages && Objects.equals(edition, book.edition) && Objects.equals(publishingCompany, book.publishingCompany);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), totalPages, authors, edition, publishingCompany);
+        return Objects.hash(super.hashCode(), totalPages, edition, publishingCompany);
     }
 
     @Override
     public String toString() {
         return "Book{" +
                 "totalPages=" + totalPages +
-                ", authors=" + authors +
                 ", edition='" + edition + '\'' +
                 ", publishingCompany='" + publishingCompany + '\'' +
                 '}';
