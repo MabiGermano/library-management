@@ -1,6 +1,7 @@
 package repositories;
 
 import models.Address;
+import models.Author;
 import models.Book;
 import models.Newspaper;
 
@@ -8,7 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -74,10 +77,14 @@ public class BookRepository {
 
     public static Book creatingBook(){
         Book book = new Book();
+        List<Author> authors = new ArrayList<>();
+        Author author = new Author();
+        author.setName("Algum autor");
+        authors.add(author);
         book.setTitle("A biblioteca da meia noite");
         book.setDescription("Best seller do new york times");
         book.setGenre("Drama");
-//        book.setAuthor("Matt Haig");
+        book.setAuthors(authors);
         book.setEdition("1º");
         book.setPublishingCompany("Bertrand Brasil");
         book.setTotalPages(308);

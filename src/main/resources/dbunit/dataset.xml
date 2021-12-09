@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <TB_LIBRARY_COLLECTION />
+    <TB_SECTION title="Algum titulo"
+    id_library_collection="1"/>
+    <TB_ADRESS street="Rua Iolanda Rodrigues Sobral"
+    zip_code="50690-220"
+    city="Recife"
+    state="Pernambuco"
+    number="550"/>
+    <TB_USER id_address="1"
+    cpf="908.507.040-65"
+    email="teste@teste.com.br"
+    name="Usuário de teste"
+    registratio="e8a8f910-eee7-4daa-b0a2-5249d5fba2e0"
+    tel="(81) 98811-6934"/>
+    <TB_MEDIA_BORROWING is_borrowed="true"
+    id_user="1"
+    created_at="2021-12-08"
+    updated_at="2021-12-08"/>
+    <TB_AUTHOR name="Matt Haig"/>
+    <TB_BOOK id_media_borrowing="1"
+    id_section="1"
+    title="A biblioteca da meia noite"
+    description="Best seller do new york times"
+    genre="Drama"
+    edition="1º"
+    publish_company="Bertrand Brasil"
+    total_pages="308"
+    stock_quantity="10"/>
+    <TB_AUTHOR_BOOKS id_author="1"
+    id_book="1"/>
+
+</dataset>
