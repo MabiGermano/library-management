@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-    <TB_LIBRARY_COLLECTION />
+    <TB_LIBRARY_COLLECTION name="biblioteca multimidia" />
     <TB_SECTION
             title="Algum titulo"
             id_library_collection="1"/>
 
-    <TB_ADRESS
+    <TB_ADDRESS
             street="Rua Iolanda Rodrigues Sobral"
             zip_code="50690-220"
             city="Recife"
@@ -16,23 +16,24 @@
     cpf="908.507.040-65"
     email="teste@teste.com.br"
     name="Usuário de teste"
-    registratio="e8a8f910-eee7-4daa-b0a2-5249d5fba2e0"
+    registration="8adab023-9691-4f32-8fb9-8db1fc84bd34"
     tel="(81) 98811-6934"/>
     <TB_MEDIA_BORROWING is_borrowed="true"
     id_user="1"
     created_at="2021-12-08"
     updated_at="2021-12-08"/>
 
-    <TB_MEDIA title="A biblioteca da meia noite"
+    <TB_MEDIA disc_media="book"
+            title="A biblioteca da meia noite"
               description="Best seller do new york times"
               genre="Drama"
-              edition="1º"
               stock_quantity="10"
               id_media_borrowing="1"
               id_section="1"/>
     <TB_BOOK
             id_media="1"
-            publish_company="Bertrand Brasil"
+              edition="1º"
+            publishing_company="Bertrand Brasil"
             total_pages="308"/>
 
 

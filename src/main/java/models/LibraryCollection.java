@@ -14,8 +14,12 @@ public class LibraryCollection implements Serializable {
     private Long id;
     @OneToMany(mappedBy = "libraryCollection", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
+
     //TODO: como colocar name aqui
     private List<Section> sections = new ArrayList<Section>();
+
+    @Column(name = "NAME")
+    private String name;
 
     public Long getId() {
         return id;
@@ -33,24 +37,27 @@ public class LibraryCollection implements Serializable {
         this.sections = sections;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LibraryCollection that = (LibraryCollection) o;
-        return Objects.equals(id, that.id) && Objects.equals(sections, that.sections);
+        return Objects.equals(id, that.id) && Objects.equals(sections, that.sections) && Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, sections);
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 
-    @Override
-    public String toString() {
-        return "LibraryCollection{" +
-                "id=" + id +
-                ", sections=" + sections +
-                '}';
-    }
 }

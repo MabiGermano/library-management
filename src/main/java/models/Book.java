@@ -7,8 +7,8 @@ import java.util.Objects;
 
 @Entity
 @Table(name="TB_BOOK")
-@DiscriminatorValue(value = "BOOK")
-@PrimaryKeyJoinColumn(name="ID_BOOK", referencedColumnName = "ID_MEDIA")
+@DiscriminatorValue(value = "book")
+@PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID_MEDIA")
 public class Book extends Media implements Serializable {
 
     @Column(name="TOTAL_PAGES")
@@ -64,15 +64,8 @@ public class Book extends Media implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), totalPages, edition, publishingCompany);
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "totalPages=" + totalPages +
-                ", edition='" + edition + '\'' +
-                ", publishingCompany='" + publishingCompany + '\'' +
-                '}';
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 }

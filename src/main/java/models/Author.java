@@ -16,7 +16,7 @@ public class Author implements Serializable {
     private Long id;
     @Column(name = "NAME")
     private String name;
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "TB_AUTHOR_BOOKS", joinColumns = {
             @JoinColumn(name = "ID_AUTHOR")},
             inverseJoinColumns = {
@@ -56,15 +56,9 @@ public class Author implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, books);
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 
-    @Override
-    public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", books=" + books +
-                '}';
-    }
 }

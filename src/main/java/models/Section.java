@@ -17,11 +17,9 @@ public class Section implements Serializable {
     private String title;
     @OneToMany(mappedBy = "section", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
-    //TODO: verificar como colocar name aqui
     private HashSet<Media> medias;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ID_LIBRARY_COLLECTION", referencedColumnName = "ID")
-    //TODO: verificar como colocar name aqui
     private LibraryCollection libraryCollection;
 
     public Long getId() {
@@ -66,16 +64,8 @@ public class Section implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, medias, libraryCollection);
-    }
-
-    @Override
-    public String toString() {
-        return "Section{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", medias=" + medias +
-                ", libraryCollection=" + libraryCollection +
-                '}';
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 }

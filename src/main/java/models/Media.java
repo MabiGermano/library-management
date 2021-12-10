@@ -99,19 +99,8 @@ public abstract class Media implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, genre, description, stockQuantity);
-    }
-
-    @Override
-    public String toString() {
-        return "Media{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", genre='" + genre + '\'' +
-                ", description='" + description + '\'' +
-                ", stockQuantity=" + stockQuantity +
-                ", mediaBorrowing=" + mediaBorrowing +
-                ", section=" + section +
-                '}';
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 }

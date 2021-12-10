@@ -86,18 +86,8 @@ public class MediaBorrowing implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, isBorrowed, medias, createdAt, updatedAt);
-    }
-
-    @Override
-    public String toString() {
-        return "MediaBorrowing{" +
-                "id=" + id +
-                ", user=" + user +
-                ", isBorrowed=" + isBorrowed +
-                ", medias=" + medias +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 }

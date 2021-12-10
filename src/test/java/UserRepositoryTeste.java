@@ -17,7 +17,7 @@ public class UserRepositoryTeste {
 
     @BeforeClass
     public static void setUpClass() {
-        Persistence.createEntityManagerFactory("library-management");
+        emf =Persistence.createEntityManagerFactory("library-management");
 
         DbUnitUtil.insertDefaultData();
     }
@@ -28,13 +28,13 @@ public class UserRepositoryTeste {
     }
 
     @Test
-    public void User() {
+    public void testingUserInsert() {
         User newUser = new User();
         newUser.setAddress(AddressRepository.findById(1L));
         newUser.setCpf("908.507.040-65");
         newUser.setEmail("teste@teste.com.br");
         newUser.setName("Usuário de teste");
-        newUser.setRegistration(UUID.randomUUID());
+        newUser.setRegistration(UUID.randomUUID().toString());
         newUser.setTel("(81) 98811-6934");
 
         User insertedUser = UserRepository.insertUser(newUser);

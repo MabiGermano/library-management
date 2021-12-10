@@ -76,7 +76,7 @@ public class UserRepository {
         user.setCpf("908.507.040-65");
         user.setEmail("teste@teste.com.br");
         user.setName("Usuário de teste");
-        user.setRegistration(UUID.randomUUID());
+        user.setRegistration(UUID.randomUUID().toString());
         user.setTel("(81) 98811-6934");
 
         user = insertUser(user);

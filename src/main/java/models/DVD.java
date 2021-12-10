@@ -7,7 +7,7 @@ import java.util.Objects;
 @Entity
 @Table(name="TB_DVD")
 @DiscriminatorValue(value = "DVD")
-@PrimaryKeyJoinColumn(name="ID_DVD", referencedColumnName = "ID_MEDIA")
+@PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID_MEDIA")
 public class DVD extends Media implements Serializable {
 
     @Column(name="ARTIST")
@@ -52,13 +52,8 @@ public class DVD extends Media implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), artist, duration, yearOfDvd);
-    }
-
-    @Override
-    public String toString() {
-        return "DVD{" +
-                "id=" + id +
-                '}';
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 }

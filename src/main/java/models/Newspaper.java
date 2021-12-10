@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 @Table(name="TB_NEWSPAPER")
 @DiscriminatorValue(value = "NEWSPAPER")
-@PrimaryKeyJoinColumn(name="ID_NEWSPAPER", referencedColumnName = "ID_MEDIA")
+@PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID_MEDIA")
 public class Newspaper extends Media implements Serializable {
 
     @Column(name = "PUBLISHING_COMPANY")
@@ -53,15 +53,9 @@ public class Newspaper extends Media implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), publishingCompany, releaseDate, originState);
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 
-    @Override
-    public String toString() {
-        return "Newspaper{" +
-                "publishingCompany='" + publishingCompany + '\'' +
-                ", releaseDate=" + releaseDate +
-                ", originState='" + originState + '\'' +
-                '}';
-    }
 }

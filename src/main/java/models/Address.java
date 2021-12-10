@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "TB_ADRESS")
+@Table(name = "TB_ADDRESS")
 public class Address implements Serializable {
 
     @Id
@@ -91,19 +91,8 @@ public class Address implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, street, number, zipCode, city, state, user);
-    }
-
-    @Override
-    public String toString() {
-        return "Address{" +
-                "id=" + id +
-                ", street='" + street + '\'' +
-                ", number=" + number +
-                ", zipCode='" + zipCode + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", user=" + user +
-                '}';
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 }

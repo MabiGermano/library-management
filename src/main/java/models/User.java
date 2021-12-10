@@ -10,6 +10,8 @@ import java.util.UUID;
 @Table(name = "TB_USER")
 public class User implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,7 +20,7 @@ public class User implements Serializable {
     @Column(name = "CPF")
     private String cpf;
     @Column(name = "REGISTRATION")
-    private UUID registration;
+    private String registration;
     @Column(name = "TEL")
     private String tel;
     @OneToOne(cascade = CascadeType.ALL)
@@ -56,11 +58,11 @@ public class User implements Serializable {
         this.cpf = cpf;
     }
 
-    public UUID getRegistration() {
+    public String getRegistration() {
         return registration;
     }
 
-    public void setRegistration(UUID registration) {
+    public void setRegistration(String registration) {
         this.registration = registration;
     }
 
@@ -106,6 +108,8 @@ public class User implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, cpf, registration, tel, address, mediaBorrowings, email);
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
     }
 }

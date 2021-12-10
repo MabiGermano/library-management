@@ -5,22 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a447f6-1698-4cdd-89dd-4f9b248b9fae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/UserRepositoryTeste.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_32.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_32.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library-management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/library-management.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Address.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Author.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/DVD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/DVD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/LibraryCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/LibraryCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Media.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/MediaBorrowing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/MediaBorrowing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Newspaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Newspaper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/AddressRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/AddressRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Section.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dbunit/dataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbunit/dataset.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/DbUnitUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DbUnitUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/UsuarioTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UsuarioTeste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Media.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Media.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/AddressRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/AddressRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/BookRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/BookRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UserRepositoryTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserRepositoryTeste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dbunit/dataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dbunit/dataset.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Address.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Author.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/DbUnitUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/DbUnitUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/UserRepositoryTeste.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/UserRepositoryTeste.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,12 +187,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserRepositoryTeste.testingUserInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="library-management" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UserRepositoryTeste" />
+      <option name="METHOD_NAME" value="testingUserInsert" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.UserRepositoryTeste" />
+        <item itemvalue="Application.AddressRepository" />
+        <item itemvalue="JUnit.UserRepositoryTeste.testingUserInsert" />
         <item itemvalue="JUnit.UserRepositoryTeste.User" />
         <item itemvalue="JUnit.AddressRepositoryTest.insertAddress" />
-        <item itemvalue="Application.AddressRepository" />
       </list>
     </recent_temporary>
   </component>
