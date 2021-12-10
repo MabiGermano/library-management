@@ -70,6 +70,55 @@ public class AddressRepository {
         return newAddress;
     }
 
+    public static void updateAddressWithMerge(Address newAddress) {
+
+        EntityManager em = null;
+        EntityTransaction et = null;
+        try {
+            em = emf.createEntityManager();
+            et = em.getTransaction();
+            et.begin();
+            em.clear();
+            em.merge(newAddress);
+            et.commit();
+        } catch (Exception ex) {
+            if (et != null && et.isActive()) {
+                logger.log(Level.SEVERE,
+                        "[Canceling] Transaction with an error: {0}", ex.getMessage());
+                et.rollback();
+                logger.info("Canceled transaction");
+            }
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    public static void updateAddressWithFlush(Address newAddress) {
+
+        EntityManager em = null;
+        EntityTransaction et = null;
+        try {
+            em = emf.createEntityManager();
+            et = em.getTransaction();
+            et.begin();
+            em.flush();
+            et.commit();
+        } catch (Exception ex) {
+            if (et != null && et.isActive()) {
+                logger.log(Level.SEVERE,
+                        "[Canceling] Transaction with an error: {0}", ex.getMessage());
+                et.rollback();
+                logger.info("Canceled transaction");
+            }
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
     public static Address creatingAddress() {
         Address newAddress = new Address();
         newAddress.setStreet("Rua Iolanda Rodrigues Sobral");

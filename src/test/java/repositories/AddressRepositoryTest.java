@@ -4,6 +4,8 @@ import models.Address;
 import org.junit.Assert;
 import org.junit.Test;
 
+import javax.persistence.CacheRetrieveMode;
+
 public class AddressRepositoryTest {
 
     @Test
@@ -17,5 +19,29 @@ public class AddressRepositoryTest {
 
         Address insertedAddress = AddressRepository.insertAddress(newAddress);
         Assert.assertNotNull(insertedAddress.getId());
+    }
+
+    @Test
+    public void updateAddressMerge() {
+        int newNumber = 20;
+        Address address = AddressRepository.findById(1L);
+        address.setNumber(newNumber);
+        AddressRepository.updateAddressWithMerge(address);
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        address = AddressRepository.findById(1L);
+        Assert.assertEquals(newNumber, address.getNumber());
+    }
+
+    @Test
+    public void updateAddressFlush() {
+        int newNumber = 20;
+        Address address = AddressRepository.findById(1L);
+        address.setNumber(newNumber);
+        AddressRepository.updateAddressWithFlush(address);
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        address = AddressRepository.findById(1L);
+        Assert.assertEquals(newNumber, address.getNumber());
     }
 }
