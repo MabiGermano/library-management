@@ -20,18 +20,8 @@ public class SectionRepository {
         logger.setLevel(Level.INFO);
     }
 
-    public static void main(String[] args) {
-        try {
-            Section section = creatingSection();
-            Section find = findById(1L);
-            System.out.println("ID da Persist: " + section.getId());
-            System.out.println("ID da Find: " + find.getId());
-        } finally {
-            emf.close();
-        }
-    }
 
-    private static Section findById(Long id) {
+    public static Section findById(Long id) {
         EntityManager em = null;
         Section section = null;
         try {
@@ -71,33 +61,4 @@ public class SectionRepository {
 
         return section;
     }
-
-    public static Section creatingSection(){
-        Section section = new Section();
-        section.setTitle("Algum titulo");
-        section.setMedias(creatingMedias());
-
-        section = insertSection(section);
-        return section;
-    }
-
-    public static List<Section> creatingListSection(){
-        List<Section> sections = new ArrayList<>();
-
-        sections.add(creatingSection());
-        sections.add(creatingSection());
-        sections.add(creatingSection());
-
-        return sections;
-    }
-
-    public static HashSet<Media> creatingMedias(){
-        HashSet medias = new HashSet();
-        medias.add(DVDRepository.creatingDVD());
-        medias.add(BookRepository.creatingBook());
-        medias.add(NewpaperRepository.creatingNewspaper());
-
-        return medias;
-    }
-
 }

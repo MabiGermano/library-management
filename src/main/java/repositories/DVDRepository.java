@@ -32,7 +32,7 @@ public class DVDRepository {
         }
     }
 
-    private static DVD findById(Long id) {
+    public static DVD findById(Long id) {
         EntityManager em = null;
         DVD dvd = new DVD();
         try {

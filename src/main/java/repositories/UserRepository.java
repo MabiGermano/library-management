@@ -29,7 +29,7 @@ public class UserRepository {
         }
     }
 
-    private static User findById(Long id) {
+    public static User findById(Long id) {
         EntityManager em = null;
         User user = new User();
         try {

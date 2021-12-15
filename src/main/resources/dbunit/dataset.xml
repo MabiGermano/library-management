@@ -13,15 +13,22 @@
             number="550"/>
 
     <TB_USER id_address="1"
-    cpf="908.507.040-65"
+    cpf="954.821.988-62"
     email="teste@teste.com.br"
     name="Usuário de teste"
     registration="8adab023-9691-4f32-8fb9-8db1fc84bd34"
     tel="(81) 98811-6934"/>
+
     <TB_MEDIA_BORROWING is_borrowed="true"
     id_user="1"
     created_at="2021-12-08"
-    updated_at="2021-12-08"/>
+    updated_at="2021-12-12"/>
+
+    <TB_MEDIA_BORROWING is_borrowed="true"
+                        id_user="1"
+                        created_at="2022-02-03"
+                        updated_at="2022-02-07"/>
+
 
     <TB_MEDIA disc_media="book"
             title="A biblioteca da meia noite"
@@ -30,14 +37,76 @@
               stock_quantity="10"
               id_media_borrowing="1"
               id_section="1"/>
+
+    <TB_MEDIA disc_media="book"
+              title="Bom dia, Verônica"
+              description="Livro que virou série da Netflix"
+              genre="Suspense"
+              stock_quantity="4"
+              id_media_borrowing="1"
+              id_section="1"/>
+
+    <TB_MEDIA disc_media="dvd"
+              title="Homem-aranha"
+              description="O menino que, quando mordido por uma aranha, ganha grandes poderes.
+              Com grandes poderes, grandes responsabilidades"
+              genre="Acao"
+              stock_quantity="2"
+              id_media_borrowing="2"
+              id_section="1"/>
+
+    <TB_MEDIA disc_media="newspaper"
+              title="Festa de aniversário da cidade"
+              description="Aniversário da cidade do recife ganha cara nova"
+              genre="Informativo"
+              stock_quantity="1"
+              id_media_borrowing="2"
+              id_section="1"/>
+
+    <TB_MEDIA disc_media="book"
+              title="Suicidas"
+              description="Livro empolgante do mesmo autor de 'Bom dia, Verônica'"
+              genre="Suspense"
+              stock_quantity="7"
+              id_media_borrowing="1"
+              id_section="1"/>
+
     <TB_BOOK
             id_media="1"
               edition="1º"
             publishing_company="Bertrand Brasil"
             total_pages="308"/>
 
+    <TB_BOOK
+            id_media="2"
+            edition="1º"
+            publishing_company="Darkside"
+            total_pages="256"/>
+
+    <TB_BOOK
+            id_media="5"
+            edition="1º"
+            publishing_company="Companhia das Letras"
+            total_pages="432"/>
+
+    <TB_DVD
+            id_media="3"
+            duration="121"
+            year_of_dvd="2002"
+            artist = "Tobey Maguire"/>
+
+    <TB_NEWSPAPER
+            id_media="4"
+            publishing_company="Diário de Pernambuco"
+            origin_state="Pernambuco"
+            release_date = "2021-07-22"/>
+
 
     <TB_AUTHOR name="Matt Haig"/>
+    <TB_AUTHOR name="Raphael Montes"/>
+
     <TB_AUTHOR_BOOKS id_author="1" id_book="1"/>
+    <TB_AUTHOR_BOOKS id_author="2" id_book="2"/>
+
 
 </dataset>

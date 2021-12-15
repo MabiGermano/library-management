@@ -11,24 +11,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.UUID;
 
-public class UserRepositoryTeste {
-
-    protected static EntityManagerFactory emf;
-
-    @BeforeClass
-    public static void setUpClass() {
-        emf =Persistence.createEntityManagerFactory("library-management");
-
-        DbUnitUtil.insertDefaultData();
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-        emf.close();
-    }
+public class UserRepositoryTest extends TestInitiator {
 
     @Test
-    public void testingUserInsert() {
+    public void testingInsertUser() {
         User newUser = new User();
         newUser.setAddress(AddressRepository.findById(1L));
         newUser.setCpf("908.507.040-65");
@@ -39,5 +25,12 @@ public class UserRepositoryTeste {
 
         User insertedUser = UserRepository.insertUser(newUser);
         Assert.assertNotNull(insertedUser.getId());
+    }
+
+    @Test
+    public void testingFindUser() {
+        User user = UserRepository.findById(1L);
+        Assert.assertNotNull(user);
+        Assert.assertEquals("8adab023-9691-4f32-8fb9-8db1fc84bd34", user.getRegistration());
     }
 }

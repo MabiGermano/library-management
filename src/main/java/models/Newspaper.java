@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name="TB_NEWSPAPER")
-@DiscriminatorValue(value = "NEWSPAPER")
+@DiscriminatorValue(value = "newspaper")
 @PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID_MEDIA")
 public class Newspaper extends Media implements Serializable {
 

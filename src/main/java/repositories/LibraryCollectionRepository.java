@@ -19,18 +19,7 @@ public class LibraryCollectionRepository {
         logger.setLevel(Level.INFO);
     }
 
-    public static void main(String[] args) {
-        try {
-            LibraryCollection libraryCollection = creatingLibraryCollection();
-            LibraryCollection find = findById(1L);
-            System.out.println("ID Persist: " + libraryCollection.getId());
-            System.out.println("ID Find: " + find.getId());
-        } finally {
-            emf.close();
-        }
-    }
-
-    private static LibraryCollection findById(Long id) {
+    public static LibraryCollection findById(Long id) {
         EntityManager em = null;
         LibraryCollection libraryCollection = new LibraryCollection();
         try {
@@ -67,19 +56,6 @@ public class LibraryCollectionRepository {
                 em.close();
             }
         }
-
-        return libraryCollection;
-    }
-
-    public static LibraryCollection creatingLibraryCollection(){
-        LibraryCollection libraryCollection = new LibraryCollection();
-        libraryCollection.setSections(SectionRepository.creatingListSection());
-
-        for (Section section : libraryCollection.getSections()){
-            section.setLibraryCollection(libraryCollection);
-        }
-
-        libraryCollection = insertLibraryCollection(libraryCollection);
 
         return libraryCollection;
     }

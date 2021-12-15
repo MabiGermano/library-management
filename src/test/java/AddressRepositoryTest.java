@@ -1,15 +1,16 @@
-package repositories;
-
 import models.Address;
 import org.junit.Assert;
 import org.junit.Test;
+import repositories.AddressRepository;
 
 import javax.persistence.CacheRetrieveMode;
+import java.util.HashMap;
+import java.util.Map;
 
-public class AddressRepositoryTest {
+public class AddressRepositoryTest extends TestInitiator{
 
     @Test
-    public void insertAddress() {
+    public void testingInsertAddress() {
         Address newAddress = new Address();
         newAddress.setStreet("Rua Iolanda Rodrigues Sobral");
         newAddress.setZipCode("50690-220");
@@ -22,7 +23,14 @@ public class AddressRepositoryTest {
     }
 
     @Test
-    public void updateAddressMerge() {
+    public void testingFindAddress() {
+        Address address = AddressRepository.findById(1L);
+        Assert.assertNotNull(address);
+        Assert.assertEquals("50690-220", address.getZipCode());
+    }
+
+    @Test
+    public void testingUpdateAddressMerge() {
         int newNumber = 20;
         Address address = AddressRepository.findById(1L);
         address.setNumber(newNumber);
@@ -34,7 +42,7 @@ public class AddressRepositoryTest {
     }
 
     @Test
-    public void updateAddressFlush() {
+    public void testingUpdateAddressFlush() {
         int newNumber = 20;
         Address address = AddressRepository.findById(1L);
         address.setNumber(newNumber);

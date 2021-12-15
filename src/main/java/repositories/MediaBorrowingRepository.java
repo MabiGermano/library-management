@@ -21,18 +21,7 @@ public class MediaBorrowingRepository {
         logger.setLevel(Level.INFO);
     }
 
-    public static void main(String[] args) {
-        try {
-            MediaBorrowing mediaBorrowing = creatingMediaBorrowing();
-            MediaBorrowing find = findById(1L);
-            System.out.println("ID Persist: " + mediaBorrowing.getId());
-            System.out.println("ID Find: " + find.getId());
-        } finally {
-            emf.close();
-        }
-    }
-
-    private static MediaBorrowing findById(Long id) {
+    public static MediaBorrowing findById(Long id) {
         EntityManager em = null;
         MediaBorrowing mediaBorrowing = null;
         try {
@@ -69,19 +58,6 @@ public class MediaBorrowingRepository {
                 em.close();
             }
         }
-
-        return mediaBorrowing;
-    }
-
-    public static MediaBorrowing creatingMediaBorrowing(){
-        MediaBorrowing mediaBorrowing = new MediaBorrowing();
-        mediaBorrowing.setBorrowed(true);
-        mediaBorrowing.setMedias(SectionRepository.creatingMedias());
-        mediaBorrowing.setUser(UserRepository.creatingUser());
-        mediaBorrowing.setCreatedAt(new Date());
-        mediaBorrowing.setUpdatedAt(new Date());
-
-        mediaBorrowing = insertMediaBorrowing(mediaBorrowing);
 
         return mediaBorrowing;
     }

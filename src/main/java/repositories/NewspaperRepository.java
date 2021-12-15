@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class NewpaperRepository {
+public class NewspaperRepository {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("library-management");
     private static final Logger logger = Logger.getGlobal();
 
@@ -20,18 +20,7 @@ public class NewpaperRepository {
         logger.setLevel(Level.INFO);
     }
 
-    public static void main(String[] args) {
-        try {
-            Newspaper newspaper = creatingNewspaper();
-            Newspaper find = findById(3L);
-            System.out.println("ID Persist: " + newspaper.getId());
-            System.out.println("ID Find: " + find.getId());
-        } finally {
-            emf.close();
-        }
-    }
-
-    private static Newspaper findById(Long id) {
+    public static Newspaper findById(Long id) {
         EntityManager em = null;
         Newspaper newspaper = null;
         try {
@@ -69,19 +58,6 @@ public class NewpaperRepository {
             }
         }
 
-        return newspaper;
-    }
-
-    public static Newspaper creatingNewspaper(){
-        Newspaper newspaper = new Newspaper();
-        newspaper.setTitle("Recife promove 1° encontro entre capitais para discutir sobre a realização do Carnaval");
-        newspaper.setDescription("");
-        newspaper.setGenre("Carnaval 2022");
-        newspaper.setOriginState("Pernambuco");
-        newspaper.setPublishingCompany("Diário de pernambuco");
-        newspaper.setReleaseDate(new Date(11-29-2021));
-
-        newspaper = insertNewspaper(newspaper);
         return newspaper;
     }
 }

@@ -23,18 +23,7 @@ public class BookRepository {
         logger.setLevel(Level.INFO);
     }
 
-    public static void main(String[] args) {
-        try {
-            Book book = creatingBook();
-            Book find = findById(2L);
-            System.out.println("ID Persist: " + book.getId());
-            System.out.println("ID Find: " + find.getId());
-        } finally {
-            emf.close();
-        }
-    }
-
-    private static Book findById(Long id) {
+    public static Book findById(Long id) {
         EntityManager em = null;
         Book book = null;
         try {
@@ -71,25 +60,6 @@ public class BookRepository {
                 em.close();
             }
         }
-
-        return book;
-    }
-
-    public static Book creatingBook(){
-        Book book = new Book();
-        List<Author> authors = new ArrayList<>();
-        Author author = new Author();
-        author.setName("Algum autor");
-        authors.add(author);
-        book.setTitle("A biblioteca da meia noite");
-        book.setDescription("Best seller do new york times");
-        book.setGenre("Drama");
-//        book.setAuthors(authors);
-        book.setEdition("1º");
-        book.setPublishingCompany("Bertrand Brasil");
-        book.setTotalPages(308);
-
-        book = insertBook(book);
 
         return book;
     }
