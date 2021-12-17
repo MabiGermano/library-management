@@ -5,43 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a447f6-1698-4cdd-89dd-4f9b248b9fae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/AuthorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/AuthorRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/BookRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/DVDRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/LibraryCollectionRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/MediaBorrowingRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/NewspaperRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SectionRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestInitiator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/DVD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/DVD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Newspaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Newspaper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/DVDRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/DVDRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/LibraryCollectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/LibraryCollectionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/MediaBorrowingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/MediaBorrowingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/NewpaperRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/NewspaperRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/SectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/SectionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dbunit/dataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbunit/dataset.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/UserRepositoryTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/UsuarioTeste.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/repositories/AddressRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AddressRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dbunit/dataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dbunit/dataset.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/DVD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/DVD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Newspaper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Newspaper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/AddressRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/AddressRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/BookRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/BookRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/DVDRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/DVDRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/LibraryCollectionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/LibraryCollectionRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/MediaBorrowingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/MediaBorrowingRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/NewpaperRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/SectionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/SectionRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/UserRepositoryTeste.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/UsuarioTeste.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/repositories/AddressRepositoryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AddressRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AddressRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +75,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AuthorRepositoryTest">
+  <component name="RunManager" selected="JUnit.AddressRepositoryTest.removerAddress">
     <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
       <setting name="displayName" value="" />
       <setting name="bbPath" value="" />
@@ -146,6 +112,45 @@
       <setting name="focusEditor" value="false" />
       <method v="2" />
     </configuration>
+    <configuration name="AddressRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="library-management" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AddressRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddressRepositoryTest.removerAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="library-management" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AddressRepositoryTest" />
+      <option name="METHOD_NAME" value="removerAddress" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddressRepositoryTest.testingUpdateAddressFlush" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="library-management" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AddressRepositoryTest" />
+      <option name="METHOD_NAME" value="testingUpdateAddressFlush" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AddressRepositoryTest.testingUpdateAddressMerge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="library-management" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AddressRepositoryTest" />
+      <option name="METHOD_NAME" value="testingUpdateAddressMerge" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AuthorRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
@@ -155,52 +160,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthorRepositoryTest.testingFindAuthor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="library-management" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AuthorRepositoryTest" />
-      <option name="METHOD_NAME" value="testingFindAuthor" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthorRepositoryTest.testingInsertAuthor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="library-management" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AuthorRepositoryTest" />
-      <option name="METHOD_NAME" value="testingInsertAuthor" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SectionRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="library-management" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SectionRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserRepositoryTest.testingFindUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="library-management" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserRepositoryTest" />
-      <option name="METHOD_NAME" value="testingFindUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AddressRepositoryTest.removerAddress" />
+        <item itemvalue="JUnit.AddressRepositoryTest.testingUpdateAddressFlush" />
+        <item itemvalue="JUnit.AddressRepositoryTest.testingUpdateAddressMerge" />
+        <item itemvalue="JUnit.AddressRepositoryTest" />
         <item itemvalue="JUnit.AuthorRepositoryTest" />
-        <item itemvalue="JUnit.AuthorRepositoryTest.testingFindAuthor" />
-        <item itemvalue="JUnit.AuthorRepositoryTest.testingInsertAuthor" />
-        <item itemvalue="JUnit.UserRepositoryTest.testingFindUser" />
-        <item itemvalue="JUnit.SectionRepositoryTest" />
       </list>
     </recent_temporary>
   </component>

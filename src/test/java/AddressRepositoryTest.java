@@ -6,6 +6,7 @@ import repositories.AddressRepository;
 import repositories.AuthorRepository;
 
 import javax.persistence.CacheRetrieveMode;
+import javax.persistence.TypedQuery;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,37 +36,44 @@ public class AddressRepositoryTest extends TestInitiator{
 
     @Test
     public void testingUpdateAddressMerge() {
-        int newNumber = 20;
-        Address address = AddressRepository.findById(1L);
-        address.setNumber(newNumber);
+        TypedQuery<Address> query = em.createNamedQuery("Address.ByStreet", Address.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("street", "Rua Iolanda Rodrigues Sobral");
+        Address address = query.getSingleResult();
+        Assert.assertNotNull(address);
+        address.setNumber(20);
         em.clear();
         em.merge(address);
         em.flush();
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        address = AddressRepository.findById(1L);
-        Assert.assertEquals(newNumber, address.getNumber());
+        Assert.assertEquals(20, address.getNumber());
     }
 
     @Test
     public void testingUpdateAddressFlush() {
-        int newNumber = 20;
-        Address address = AddressRepository.findById(1L);
-        address.setNumber(newNumber);
+
+        TypedQuery<Address> query = em.createNamedQuery("Address.ByStreet", Address.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("street", "Rua Iolanda Rodrigues Sobral");
+        Address address = query.getSingleResult();
+        Assert.assertNotNull(address);
+        address.setStreet("Rua sem nome");
         em.flush();
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        address = AddressRepository.findById(1L);
-        Assert.assertEquals(newNumber, address.getNumber());
+        Assert.assertEquals(0, query.getResultList().size());
+        query.setParameter("street", "Rua sem nome");
+        address = query.getSingleResult();
+        Assert.assertNotNull(address);
     }
 
     @Test
     public void removerAddress() {
-        logger.info("Executando removerAddress()");
-        Address address = AddressRepository.findById(1L);
+        TypedQuery<Address> query = em.createNamedQuery("Address.ByStreet", Address.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("street", "Rua Iolanda Rodrigues Sobral");
+        Address address = query.getSingleResult();
+        Assert.assertNotNull(address);
+        address.setStreet("Rua sem nome");
         em.remove(address);
         em.flush();
-        address = AddressRepository.findById(1L);
-        assertNull(address);
+        Assert.assertEquals(0, query.getResultList().size());
     }
 }
