@@ -64,16 +64,16 @@ public class AddressRepositoryTest extends TestInitiator{
         Assert.assertNotNull(address);
     }
 
-//    @Test
-//    public void removerAddress() {
-//        TypedQuery<Address> query = em.createNamedQuery("Address.ByStreet", Address.class);
-//        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-//        query.setParameter("street", "Rua Iolanda Rodrigues Sobral");
-//        Address address = query.getSingleResult();
-//        Assert.assertNotNull(address);
-//        address.setStreet("Rua sem nome");
-//        em.remove(address);
-//        em.flush();
-//        Assert.assertEquals(0, query.getResultList().size());
-//    }
+    @Test
+    public void removerAddress() {
+        TypedQuery<Address> query = em.createNamedQuery("Address.ByStreet", Address.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("street", "Rua Iolanda Rodrigues Sobral1");
+        Address address = query.getSingleResult();
+        Assert.assertNotNull(address);
+        address.setStreet("Rua sem nome");
+        em.remove(address);
+        em.flush();
+        Assert.assertEquals(0, query.getResultList().size());
+    }
 }
