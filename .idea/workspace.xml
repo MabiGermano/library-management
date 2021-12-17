@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d1a447f6-1698-4cdd-89dd-4f9b248b9fae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dbunit/dataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbunit/dataset.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AddressRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AddressRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +75,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AddressRepositoryTest.removerAddress">
+  <component name="RunManager" selected="JUnit.AddressRepositoryTest">
     <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
       <setting name="displayName" value="" />
       <setting name="bbPath" value="" />
@@ -131,6 +131,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AddressRepositoryTest.testingInsertAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="library-management" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AddressRepositoryTest" />
+      <option name="METHOD_NAME" value="testingInsertAddress" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AddressRepositoryTest.testingUpdateAddressFlush" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
@@ -151,22 +161,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthorRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="library-management" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AuthorRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AddressRepositoryTest.removerAddress" />
+        <item itemvalue="JUnit.AddressRepositoryTest" />
+        <item itemvalue="JUnit.AddressRepositoryTest.testingInsertAddress" />
         <item itemvalue="JUnit.AddressRepositoryTest.testingUpdateAddressFlush" />
         <item itemvalue="JUnit.AddressRepositoryTest.testingUpdateAddressMerge" />
-        <item itemvalue="JUnit.AddressRepositoryTest" />
-        <item itemvalue="JUnit.AuthorRepositoryTest" />
+        <item itemvalue="JUnit.AddressRepositoryTest.removerAddress" />
       </list>
     </recent_temporary>
   </component>

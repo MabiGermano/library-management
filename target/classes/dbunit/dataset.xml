@@ -12,6 +12,13 @@
             state="Pernambuco"
             number="550"/>
 
+    <TB_ADDRESS
+            street="Rua dos bobos"
+            zip_code="50690-232"
+            city="Recife"
+            state="Pernambuco"
+            number="55"/>
+
     <TB_USER id_address="1"
     cpf="954.821.988-62"
     email="teste@teste.com.br"
