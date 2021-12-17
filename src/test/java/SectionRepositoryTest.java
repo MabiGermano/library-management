@@ -1,7 +1,4 @@
-import models.Book;
-import models.LibraryCollection;
-import models.Section;
-import models.User;
+import models.*;
 import org.junit.Assert;
 import org.junit.Test;
 import repositories.BookRepository;
@@ -10,6 +7,7 @@ import repositories.SectionRepository;
 import repositories.UserRepository;
 
 import javax.persistence.CacheRetrieveMode;
+import javax.persistence.TypedQuery;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,37 +33,48 @@ public class SectionRepositoryTest extends TestInitiator{
 
     @Test
     public void testingUpdateSectionMerge() {
-        String newName = "Novo nome";
-        Section section = SectionRepository.findById(1L);
-        section.setTitle(newName);
+        String newTitle = "Novo nome";
+        TypedQuery<Section> query = em.createNamedQuery("Section.ByTitle", Section.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("title", "Algum titulo");
+        Section section = query.getSingleResult();
+        Assert.assertNotNull(section);
+        section.setTitle(newTitle);
         em.clear();
         em.merge(section);
         em.flush();
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        section = SectionRepository.findById(1L);
-        Assert.assertEquals(newName, section.getTitle());
+        Assert.assertEquals(0, query.getResultList().size());
+        query.setParameter("title", newTitle);
+        section = query.getSingleResult();
+        Assert.assertNotNull(section);
     }
 
     @Test
     public void testingUpdateSectionFlush() {
-        String newName = "Novo nome";
-        Section section = SectionRepository.findById(1L);
-        section.setTitle(newName);
+        String newTitle = "Novo nome";
+        TypedQuery<Section> query = em.createNamedQuery("Section.ByTitle", Section.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("title", "Algum titulo novo");
+        Section section = query.getSingleResult();
+        Assert.assertNotNull(section);
+        section.setTitle(newTitle);
         em.flush();
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        section = SectionRepository.findById(1L);
-        Assert.assertEquals(newName, section.getTitle());
+        Assert.assertEquals(0, query.getResultList().size());
+        query.setParameter("title", newTitle);
+        section = query.getSingleResult();
+        Assert.assertNotNull(section);
     }
 
     @Test
     public void removerSection() {
         logger.info("Executando removerSection()");
-        Section section = SectionRepository.findById(1L);
+        TypedQuery<Section> query = em.createNamedQuery("Section.ByTitle", Section.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("title", "Suspenses psicologicos");
+        Section section = query.getSingleResult();
+        Assert.assertNotNull(section);
         em.remove(section);
         em.flush();
-        section = SectionRepository.findById(1L);
-        assertNull(section);
+        Assert.assertEquals(0, query.getResultList().size());
     }
 }

@@ -1,3 +1,4 @@
+import models.Address;
 import models.User;
 import org.junit.Assert;
 import org.junit.Test;
@@ -5,6 +6,7 @@ import repositories.AddressRepository;
 import repositories.UserRepository;
 
 import javax.persistence.CacheRetrieveMode;
+import javax.persistence.TypedQuery;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -19,7 +21,7 @@ public class UserRepositoryTest extends TestInitiator {
         newUser.setAddress(AddressRepository.findById(1L));
         newUser.setCpf("908.507.040-65");
         newUser.setEmail("teste@teste.com.br");
-        newUser.setName("Usuário de teste");
+        newUser.setName("Usuário de teste1");
         newUser.setRegistration(UUID.randomUUID().toString());
         newUser.setTel("(81) 98811-6934");
 
@@ -36,37 +38,43 @@ public class UserRepositoryTest extends TestInitiator {
 
     @Test
     public void testingUpdateUserMerge() {
-        String newName = "Novo nome";
-        User user = UserRepository.findById(1L);
-        user.setName(newName);
+        TypedQuery<User> query = em.createNamedQuery("User.ByName", User.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("name", "Usuário de teste2");
+        User user = query.getSingleResult();
+        Assert.assertNotNull(user);
+        user.setName("Novo nome");
         em.clear();
         em.merge(user);
         em.flush();
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        user = UserRepository.findById(1L);
-        Assert.assertEquals(newName, user.getName());
+        Assert.assertEquals(0, query.getResultList().size());
     }
 
     @Test
     public void testingUpdateUserFlush() {
         String newName = "Novo nome";
-        User user = UserRepository.findById(1L);
+        TypedQuery<User> query = em.createNamedQuery("User.ByName", User.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("name", "Usuário de teste");
+        User user = query.getSingleResult();
+        Assert.assertNotNull(user);
         user.setName(newName);
         em.flush();
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        user = UserRepository.findById(1L);
-        Assert.assertEquals(newName, user.getName());
+        Assert.assertEquals(0, query.getResultList().size());
+        query.setParameter("name", newName);
+        user = query.getSingleResult();
+        Assert.assertNotNull(user);
     }
 
     @Test
     public void removerUser() {
-        logger.info("Executando removerUser()");
-        User user = UserRepository.findById(1L);
-        em.remove(user);
+        TypedQuery<Address> query = em.createNamedQuery("User.ByName", Address.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter("name", "Usuário de teste1");
+        Address address = query.getSingleResult();
+        Assert.assertNotNull(address);
+        em.remove(address);
         em.flush();
-        user = UserRepository.findById(1L);
-        assertNull(user);
+        Assert.assertEquals(0, query.getResultList().size());
     }
 }
