@@ -1,11 +1,15 @@
 import models.Address;
+import models.Author;
 import org.junit.Assert;
 import org.junit.Test;
 import repositories.AddressRepository;
+import repositories.AuthorRepository;
 
 import javax.persistence.CacheRetrieveMode;
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.junit.Assert.assertNull;
 
 public class AddressRepositoryTest extends TestInitiator{
 
@@ -34,7 +38,9 @@ public class AddressRepositoryTest extends TestInitiator{
         int newNumber = 20;
         Address address = AddressRepository.findById(1L);
         address.setNumber(newNumber);
-        AddressRepository.updateAddressWithMerge(address);
+        em.clear();
+        em.merge(address);
+        em.flush();
         Map<String, Object> properties = new HashMap<>();
         properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         address = AddressRepository.findById(1L);
@@ -46,10 +52,20 @@ public class AddressRepositoryTest extends TestInitiator{
         int newNumber = 20;
         Address address = AddressRepository.findById(1L);
         address.setNumber(newNumber);
-        AddressRepository.updateAddressWithFlush(address);
+        em.flush();
         Map<String, Object> properties = new HashMap<>();
         properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         address = AddressRepository.findById(1L);
         Assert.assertEquals(newNumber, address.getNumber());
+    }
+
+    @Test
+    public void removerAddress() {
+        logger.info("Executando removerAddress()");
+        Address address = AddressRepository.findById(1L);
+        em.remove(address);
+        em.flush();
+        address = AddressRepository.findById(1L);
+        assertNull(address);
     }
 }

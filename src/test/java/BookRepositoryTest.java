@@ -1,9 +1,13 @@
-import models.Address;
-import models.Author;
 import models.Book;
 import org.junit.Assert;
 import org.junit.Test;
 import repositories.BookRepository;
+
+import javax.persistence.CacheRetrieveMode;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.junit.Assert.assertNull;
 
 
 public class BookRepositoryTest extends TestInitiator{
@@ -28,5 +32,41 @@ public class BookRepositoryTest extends TestInitiator{
         Book book = BookRepository.findById(1L);
         Assert.assertNotNull(book);
         Assert.assertEquals("A biblioteca da meia noite", book.getTitle());
+    }
+
+    @Test
+    public void testingUpdateBookMerge() {
+        int newNumber = 120;
+        Book book = BookRepository.findById(1L);
+        book.setTotalPages(newNumber);
+        em.clear();
+        em.merge(book);
+        em.flush();
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        book = BookRepository.findById(1L);
+        Assert.assertEquals(newNumber, book.getTotalPages());
+    }
+
+    @Test
+    public void testingUpdateBookFlush() {
+        int newNumber = 20;
+        Book book = BookRepository.findById(1L);
+        book.setTotalPages(newNumber);
+        em.flush();
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        book = BookRepository.findById(1L);
+        Assert.assertEquals(newNumber, book.getTotalPages());
+    }
+
+    @Test
+    public void removerBook() {
+        logger.info("Executando removerBook()");
+        Book book = BookRepository.findById(1L);
+        em.remove(book);
+        em.flush();
+        book = BookRepository.findById(1L);
+        assertNull(book);
     }
 }

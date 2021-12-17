@@ -6,10 +6,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import repositories.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
+import javax.persistence.CacheRetrieveMode;
+import java.util.*;
+
+import static org.junit.Assert.assertNull;
 
 public class MediaBorrowingRepositoryTest extends  TestInitiator{
 
@@ -34,5 +34,41 @@ public class MediaBorrowingRepositoryTest extends  TestInitiator{
         MediaBorrowing mediaBorrowing = MediaBorrowingRepository.findById(1L);
         Assert.assertNotNull(mediaBorrowing);
         Assert.assertEquals(2, mediaBorrowing.getMedias().size());
+    }
+
+    @Test
+    public void testingUpdateMediaBorrowingMerge() {
+        Date newDate = new Date();
+        MediaBorrowing mediaBorrowing = MediaBorrowingRepository.findById(1L);
+        mediaBorrowing.setUpdatedAt(newDate);
+        em.clear();
+        em.merge(mediaBorrowing);
+        em.flush();
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        mediaBorrowing = MediaBorrowingRepository.findById(1L);
+        Assert.assertEquals(newDate, mediaBorrowing.getUpdatedAt());
+    }
+
+    @Test
+    public void testingUpdateMediaBorrowingFlush() {
+        Date newDate = new Date();
+        MediaBorrowing mediaBorrowing = MediaBorrowingRepository.findById(1L);
+        mediaBorrowing.setUpdatedAt(newDate);
+        em.flush();
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        mediaBorrowing = MediaBorrowingRepository.findById(1L);
+        Assert.assertEquals(newDate, mediaBorrowing.getUpdatedAt());
+    }
+
+    @Test
+    public void removerMediaBorrowing() {
+        logger.info("Executando removerSection()");
+        MediaBorrowing mediaBorrowing = MediaBorrowingRepository.findById(1L);
+        em.remove(mediaBorrowing);
+        em.flush();
+        mediaBorrowing = MediaBorrowingRepository.findById(1L);
+        assertNull(mediaBorrowing);
     }
 }
