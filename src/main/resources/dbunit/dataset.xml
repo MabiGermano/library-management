@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
     <TB_LIBRARY_COLLECTION name="biblioteca multimidia" />
+
     <TB_SECTION
             title="Algum titulo"
+            id_library_collection="1"/>
+
+    <TB_SECTION
+            title="Algum titulo novo"
             id_library_collection="1"/>
 
     <TB_ADDRESS
@@ -25,6 +30,13 @@
     name="Usuário de teste"
     registration="8adab023-9691-4f32-8fb9-8db1fc84bd34"
     tel="(81) 98811-6934"/>
+
+    <TB_USER id_address="2"
+             cpf="954.821.988-62"
+             email="teste@teste.com.br"
+             name="Usuário de teste2"
+             registration="8adab023-9691-4f32-8fb9-8db1fc84bd34"
+             tel="(81) 98811-6934"/>
 
     <TB_MEDIA_BORROWING is_borrowed="true"
     id_user="1"
