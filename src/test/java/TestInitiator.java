@@ -21,7 +21,7 @@ public abstract class TestInitiator {
     public static void setUpClass() {
         logger = Logger.getGlobal();
         logger.setLevel(Level.INFO);
-        emf = Persistence.createEntityManagerFactory("library-management");
+        emf = Persistence.createEntityManagerFactory("library_management");
 
         DbUnitUtil.insertDefaultData();
     }

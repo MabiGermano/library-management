@@ -6,14 +6,6 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "TB_ADDRESS")
-@NamedQueries(
-        {
-                @NamedQuery(
-                        name = "Address.ByStreet",
-                        query = "SELECT a FROM Address a WHERE a.street LIKE :street ORDER BY a.id"
-                )
-        }
-)
 public class Address implements Serializable {
 
     @Id

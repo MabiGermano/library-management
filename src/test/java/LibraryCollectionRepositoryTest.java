@@ -24,16 +24,17 @@ public class LibraryCollectionRepositoryTest extends TestInitiator {
         LibraryCollection newLibraryCollection = new LibraryCollection();
         newLibraryCollection.setName("Sessão Reservada");
         List<Section> sectionList = new ArrayList<Section>();
-        sectionList.add(SectionRepository.findById(1L));
+        sectionList.add(em.find(Section.class, 1L));
         newLibraryCollection.setSections(sectionList);
 
-        LibraryCollection insertedLC = LibraryCollectionRepository.insertLibraryCollection(newLibraryCollection);
-        Assert.assertNotNull(insertedLC.getId());
+        em.persist(newLibraryCollection);
+        em.flush();
+        Assert.assertNotNull(newLibraryCollection.getId());
     }
 
     @Test
     public void testingFindLibraryCollection() {
-        LibraryCollection libraryCollection = LibraryCollectionRepository.findById(1L);
+        LibraryCollection libraryCollection = em.find(LibraryCollection.class, 1L);
         Assert.assertNotNull(libraryCollection);
         Assert.assertEquals("biblioteca multimidia", libraryCollection.getName());
     }
@@ -41,36 +42,32 @@ public class LibraryCollectionRepositoryTest extends TestInitiator {
     @Test
     public void testingUpdateLibraryCollectionMerge() {
         String newName = "Novo nome";
-        LibraryCollection libraryCollection = LibraryCollectionRepository.findById(1L);
+        LibraryCollection libraryCollection = em.find(LibraryCollection.class, 1L);
         libraryCollection.setName(newName);
         em.clear();
         em.merge(libraryCollection);
         em.flush();
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        libraryCollection = LibraryCollectionRepository.findById(1L);
+        libraryCollection = em.find(LibraryCollection.class, 1L);
         Assert.assertEquals(newName, libraryCollection.getName());
     }
 
     @Test
     public void testingUpdateLibraryCollectionFlush() {
         String newName = "Novo nome";
-        LibraryCollection libraryCollection = LibraryCollectionRepository.findById(1L);
+        LibraryCollection libraryCollection = em.find(LibraryCollection.class, 1L);
         libraryCollection.setName(newName);
         em.flush();
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        libraryCollection = LibraryCollectionRepository.findById(1L);
+        libraryCollection = em.find(LibraryCollection.class, 1L);
         Assert.assertEquals(newName, libraryCollection.getName());
     }
 
-    @Test
-    public void removerLibraryCollection() {
-        logger.info("Executando removerLibraryCollection()");
-        LibraryCollection libraryCollection = LibraryCollectionRepository.findById(1L);
-        em.remove(libraryCollection);
-        em.flush();
-        libraryCollection = LibraryCollectionRepository.findById(1L);
-        assertNull(libraryCollection);
-    }
+//    @Test
+//    public void removerLibraryCollection() {
+//        logger.info("Executando removerLibraryCollection()");
+//        LibraryCollection libraryCollection = em.find(LibraryCollection.class, 2L);
+//        em.remove(libraryCollection);
+//        em.flush();
+//        libraryCollection = em.find(LibraryCollection.class, 2L);
+//        assertNull(libraryCollection);
+//    }
 }

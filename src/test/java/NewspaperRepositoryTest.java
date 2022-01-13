@@ -25,13 +25,18 @@ public class NewspaperRepositoryTest extends TestInitiator{
         newspaper.setOriginState("São Paulo");
         newspaper.setReleaseDate(new Date());
 
-        Newspaper insertedNewspaper = NewspaperRepository.insertNewspaper(newspaper);
-        Assert.assertNotNull(insertedNewspaper.getId());
+        em.persist(newspaper);
+        em.flush();
+        Assert.assertNotNull(newspaper.getId());
     }
 
     @Test
     public void testingFindNewspaper() {
-        Newspaper newspaper = NewspaperRepository.findById(4L);
+        String jpql = "SELECT n FROM Newspaper n WHERE n.id = ?1";
+        TypedQuery<Newspaper> query = em.createQuery(jpql, Newspaper.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter(1, 4L);
+        Newspaper newspaper = query.getSingleResult();
         Assert.assertNotNull(newspaper);
         assertEquals("Festa de aniversário da cidade", newspaper.getTitle());
     }
@@ -39,36 +44,36 @@ public class NewspaperRepositoryTest extends TestInitiator{
     @Test
     public void testingUpdateNewspaperMerge() {
         Date newDate = new Date();
-        Newspaper newspaper = NewspaperRepository.findById(1L);
+        Newspaper newspaper = em.find(Newspaper.class, 4L);
         newspaper.setReleaseDate(newDate);
         em.clear();
         em.merge(newspaper);
         em.flush();
         Map<String, Object> properties = new HashMap<>();
         properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        newspaper = NewspaperRepository.findById(1L);
+        newspaper = em.find(Newspaper.class, 4L);
         assertEquals(newDate, newspaper.getReleaseDate());
     }
 
     @Test
     public void testingUpdateNewspaperFlush() {
         Date newDate = new Date();
-        Newspaper newspaper = NewspaperRepository.findById(1L);
+        Newspaper newspaper = em.find(Newspaper.class, 4L);
         newspaper.setReleaseDate(newDate);
         em.flush();
         Map<String, Object> properties = new HashMap<>();
         properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        newspaper = NewspaperRepository.findById(1L);
+        newspaper = em.find(Newspaper.class, 4L);
         assertEquals(newDate, newspaper.getReleaseDate());
     }
 
     @Test
     public void removerNewspaper() {
         logger.info("Executando removerNewspaper()");
-        Newspaper newspaper = NewspaperRepository.findById(1L);
+        Newspaper newspaper = em.find(Newspaper.class, 6L);
         em.remove(newspaper);
         em.flush();
-        newspaper = NewspaperRepository.findById(1L);
+        newspaper = em.find(Newspaper.class, 6L);
         assertNull(newspaper);
     }
 }

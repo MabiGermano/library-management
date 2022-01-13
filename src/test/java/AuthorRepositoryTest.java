@@ -22,18 +22,19 @@ public class AuthorRepositoryTest extends TestInitiator{
         Author newAuthor = new Author();
         newAuthor.setName("Raphael Montes");
         List<Book> booksList = new ArrayList<Book>();
-        booksList.add(BookRepository.findById(2L));
-        booksList.add(BookRepository.findById(5L));
+        booksList.add(em.find(Book.class, 2L));
+        booksList.add(em.find(Book.class, 5L));
         newAuthor.setName("Raphael Montes");
         newAuthor.setBooks(booksList);
 
-        Author insertedAuthor = AuthorRepository.insertAuthor(newAuthor);
-        assertNotNull(insertedAuthor.getId());
+        em.persist(newAuthor);
+        em.flush();
+        assertNotNull(newAuthor.getId());
     }
 
     @Test
     public void testingFindAuthor() {
-        Author author = AuthorRepository.findById(1L);
+        Author author = em.find(Author.class, 1L);
         assertNotNull(author);
         Assert.assertEquals("Matt Haig", author.getName());
         Assert.assertEquals(1, author.getBooks().size());
@@ -42,38 +43,34 @@ public class AuthorRepositoryTest extends TestInitiator{
     @Test
     public void testingUpdateAuthorMerge() {
         String newName = "Outro author";
-        Author author = AuthorRepository.findById(1L);
+        Author author = em.find(Author.class, 1L);
         assertNotNull(author);
         author.setName(newName);
         em.clear();
         em.merge(author);
         em.flush();
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        author = AuthorRepository.findById(1L);
+        author = em.find(Author.class, 1L);
         Assert.assertEquals(newName, author.getName());
     }
 
     @Test
     public void testingUpdateAuthorFlush() {
         String newName = "Outro author";
-        Author author = AuthorRepository.findById(1L);
+        Author author = em.find(Author.class, 1L);
         assertNotNull(author);
         author.setName(newName);
         em.flush();
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        author = AuthorRepository.findById(1L);
+        author = em.find(Author.class, 1L);
         Assert.assertEquals(newName, author.getName());
     }
 
     @Test
     public void removerAuthor() {
         logger.info("Executando removerBook()");
-        Author author = AuthorRepository.findById(1L);
+        Author author = em.find(Author.class, 2L);
         em.remove(author);
         em.flush();
-        author = AuthorRepository.findById(1L);
+        author = em.find(Author.class, 2L);
         assertNull(author);
     }
 }

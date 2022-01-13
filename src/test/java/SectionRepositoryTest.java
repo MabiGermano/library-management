@@ -18,25 +18,27 @@ public class SectionRepositoryTest extends TestInitiator{
     public void testingInsertSection() {
         Section newSection = new Section();
         newSection.setTitle("Suspenses psicologicos");
-        newSection.setLibraryCollection(LibraryCollectionRepository.findById(1L));
+        newSection.setLibraryCollection(em.find(LibraryCollection.class, 1L));
 
-        Section insertedSection = SectionRepository.insertSection(newSection);
-        Assert.assertNotNull(insertedSection.getId());
+        em.persist(newSection);
+        em.flush();
+        Assert.assertNotNull(newSection.getId());
     }
 
     @Test
     public void testingFindSection() {
-        Section section = SectionRepository.findById(1L);
+        Section section = em.find(Section.class, 1L);
         Assert.assertNotNull(section);
         Assert.assertEquals("Algum titulo", section.getTitle());
     }
 
     @Test
     public void testingUpdateSectionMerge() {
-        String newTitle = "Novo nome";
-        TypedQuery<Section> query = em.createNamedQuery("Section.ByTitle", Section.class);
+        String newTitle = "Novo nome merge";
+        String jpql = "SELECT s FROM Section s WHERE s.title = ?1";
+        TypedQuery<Section> query = em.createQuery(jpql, Section.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        query.setParameter("title", "Algum titulo");
+        query.setParameter(1, "Novo nome");
         Section section = query.getSingleResult();
         Assert.assertNotNull(section);
         section.setTitle(newTitle);
@@ -44,7 +46,7 @@ public class SectionRepositoryTest extends TestInitiator{
         em.merge(section);
         em.flush();
         Assert.assertEquals(0, query.getResultList().size());
-        query.setParameter("title", newTitle);
+        query.setParameter(1, newTitle);
         section = query.getSingleResult();
         Assert.assertNotNull(section);
     }
@@ -52,15 +54,16 @@ public class SectionRepositoryTest extends TestInitiator{
     @Test
     public void testingUpdateSectionFlush() {
         String newTitle = "Novo nome";
-        TypedQuery<Section> query = em.createNamedQuery("Section.ByTitle", Section.class);
+        String jpql = "SELECT s FROM Section s WHERE s.title = ?1";
+        TypedQuery<Section> query = em.createQuery(jpql, Section.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        query.setParameter("title", "Algum titulo novo");
+        query.setParameter(1, "Algum titulo");
         Section section = query.getSingleResult();
         Assert.assertNotNull(section);
         section.setTitle(newTitle);
         em.flush();
         Assert.assertEquals(0, query.getResultList().size());
-        query.setParameter("title", newTitle);
+        query.setParameter(1, newTitle);
         section = query.getSingleResult();
         Assert.assertNotNull(section);
     }
@@ -68,9 +71,10 @@ public class SectionRepositoryTest extends TestInitiator{
     @Test
     public void removerSection() {
         logger.info("Executando removerSection()");
-        TypedQuery<Section> query = em.createNamedQuery("Section.ByTitle", Section.class);
+        String jpql = "SELECT s FROM Section s WHERE s.title = ?1";
+        TypedQuery<Section> query = em.createQuery(jpql, Section.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        query.setParameter("title", "Suspenses psicologicos");
+        query.setParameter(1, "Algum titulo novo");
         Section section = query.getSingleResult();
         Assert.assertNotNull(section);
         em.remove(section);
