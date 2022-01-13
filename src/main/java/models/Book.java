@@ -14,7 +14,6 @@ public class Book extends Media implements Serializable {
     @Column(name="TOTAL_PAGES")
     private int totalPages;
 //    @ManyToMany(mappedBy = "books")
-    // TODO: verificar como coloca name aqui
 //    private List<Author> authors;
     @Column(name = "EDITION")
     private String edition;

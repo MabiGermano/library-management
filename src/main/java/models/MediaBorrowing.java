@@ -15,13 +15,11 @@ public class MediaBorrowing implements Serializable {
     private Long id;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ID_USER", referencedColumnName = "ID")
-    //TODO: verificar como colocar name aqui
     private User user;
     @Column(name = "IS_BORROWED")
     private boolean isBorrowed;
     @OneToMany(mappedBy = "mediaBorrowing", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
-    //TODO: verificar como colocar name aqui
     private HashSet<Media> medias;
     @Column(name = "CREATED_AT")
     private Date createdAt;

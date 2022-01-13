@@ -25,11 +25,9 @@ public class User implements Serializable {
     private String tel;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_ADDRESS", referencedColumnName = "ID")
-    //TODO: verificar como colocar name aqui
     private Address address;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL, orphanRemoval = true)
-    //TODO: verificar como colocar name aqui
     private HashSet<MediaBorrowing> mediaBorrowings;
     @Column(name = "EMAIL")
     private String email;

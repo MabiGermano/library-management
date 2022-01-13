@@ -22,7 +22,6 @@ public class Address implements Serializable {
     @Column(name="STATE")
     private String state;
     @OneToOne(mappedBy = "address")
-    // TODO: verificar como colocar name aqui
     private User user;
 
     public Long getId() {

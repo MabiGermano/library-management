@@ -15,7 +15,6 @@ public class LibraryCollection implements Serializable {
     @OneToMany(mappedBy = "libraryCollection", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
 
-    //TODO: como colocar name aqui
     private List<Section> sections = new ArrayList<Section>();
 
     @Column(name = "NAME")

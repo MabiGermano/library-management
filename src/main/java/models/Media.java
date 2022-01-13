@@ -26,11 +26,9 @@ public abstract class Media implements Serializable {
     protected int stockQuantity;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ID_MEDIA_BORROWING", referencedColumnName = "ID")
-    //TODO: verificar como colocar name aqui
     protected MediaBorrowing mediaBorrowing;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ID_SECTION", referencedColumnName = "ID")
-    //TODO: verificar como colocar name aqui
     protected Section section;
 
     public Long getId() {
