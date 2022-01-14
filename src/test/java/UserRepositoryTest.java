@@ -41,7 +41,7 @@ public class UserRepositoryTest extends TestInitiator {
         query.setParameter(1, 2L);
         User user = query.getSingleResult();
         Assert.assertNotNull(user);
-        Assert.assertEquals("8adab023-9691-4f32-8fb9-8db1fc84bd34", user.getRegistration());
+        Assert.assertEquals("8p5ab023-9oc1-4f72-8fb9-88bgfc848d34", user.getRegistration());
     }
 
     @Test
