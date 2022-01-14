@@ -70,10 +70,10 @@ public class NewspaperRepositoryTest extends TestInitiator{
     @Test
     public void removerNewspaper() {
         logger.info("Executando removerNewspaper()");
-        Newspaper newspaper = em.find(Newspaper.class, 6L);
+        Newspaper newspaper = em.find(Newspaper.class, 8L);
         em.remove(newspaper);
         em.flush();
-        newspaper = em.find(Newspaper.class, 6L);
+        newspaper = em.find(Newspaper.class, 8L);
         assertNull(newspaper);
     }
 }

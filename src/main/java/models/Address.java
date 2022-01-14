@@ -21,7 +21,7 @@ public class Address implements Serializable {
     private String city;
     @Column(name="STATE")
     private String state;
-    @OneToOne(mappedBy = "address")
+    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
     private User user;
 
     public Long getId() {

@@ -1,5 +1,7 @@
 package models;
 
+import org.eclipse.persistence.annotations.CascadeOnDelete;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -23,7 +25,7 @@ public class User implements Serializable {
     private String registration;
     @Column(name = "TEL")
     private String tel;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "ID_ADDRESS", referencedColumnName = "ID")
     private Address address;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,

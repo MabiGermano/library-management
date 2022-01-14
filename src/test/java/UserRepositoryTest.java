@@ -18,7 +18,7 @@ public class UserRepositoryTest extends TestInitiator {
         String jpql = "SELECT a FROM Address a WHERE a.id = ?1";
         TypedQuery<Address> query = em.createQuery(jpql, Address.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        query.setParameter(1, 1L);
+        query.setParameter(1, 2L);
         Address address = query.getSingleResult();
         User newUser = new User();
         newUser.setAddress(address);
@@ -38,7 +38,7 @@ public class UserRepositoryTest extends TestInitiator {
         String jpql = "SELECT u FROM User u WHERE u.id = ?1";
         TypedQuery<User> query = em.createQuery(jpql, User.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        query.setParameter(1, 1L);
+        query.setParameter(1, 2L);
         User user = query.getSingleResult();
         Assert.assertNotNull(user);
         Assert.assertEquals("8adab023-9691-4f32-8fb9-8db1fc84bd34", user.getRegistration());
@@ -46,17 +46,16 @@ public class UserRepositoryTest extends TestInitiator {
 
     @Test
     public void testingUpdateUserMerge() {
-        String jpql = "SELECT u FROM User u WHERE u.name = ?1";
+        String jpql = "SELECT u FROM User u WHERE u.id = ?1";
         TypedQuery<User> query = em.createQuery(jpql, User.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        query.setParameter(1, "Usuário de teste2");
+        query.setParameter(1, 2L);
         User user = query.getSingleResult();
         Assert.assertNotNull(user);
-        user.setName("Novo nome");
+        user.setName("Novo nomezinho");
         em.clear();
         em.merge(user);
         em.flush();
-        Assert.assertEquals(0, query.getResultList().size());
     }
 
     @Test
@@ -65,7 +64,7 @@ public class UserRepositoryTest extends TestInitiator {
         String jpql = "SELECT u FROM User u WHERE u.name = ?1";
         TypedQuery<User> query = em.createQuery(jpql, User.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-        query.setParameter(1, "Usuário de teste");
+        query.setParameter(1, "Usuário de teste2");
         User user = query.getSingleResult();
         Assert.assertNotNull(user);
         user.setName(newName);
@@ -76,16 +75,16 @@ public class UserRepositoryTest extends TestInitiator {
         Assert.assertNotNull(user);
     }
 
-//    @Test
-//    public void removerUser() {
-//        String jpql = "SELECT u FROM User u WHERE u.name = ?1";
-//        TypedQuery<User> query = em.createQuery(jpql, User.class);
-//        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
-//        query.setParameter(1, "Usuário de teste");
-//        User user = query.getSingleResult();
-//        Assert.assertNotNull(user);
-//        em.remove(user);
-//        User removedUser = em.find(User.class, user.getId());
-//        Assert.assertNull(removedUser);
-//    }
+    @Test
+    public void removerUser() {
+        String jpql = "SELECT u FROM User u WHERE u.name = ?1";
+        TypedQuery<User> query = em.createQuery(jpql, User.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
+        query.setParameter(1, "Usuário de teste");
+        User user = query.getSingleResult();
+        Assert.assertNotNull(user);
+        em.remove(user);
+        User removedUser = em.find(User.class, user.getId());
+        Assert.assertNull(removedUser);
+    }
 }

@@ -32,11 +32,11 @@
     tel="(81) 98811-6934"/>
 
     <TB_USER id_address="2"
-             cpf="954.821.988-62"
-             email="teste@teste.com.br"
+             cpf="084.451.985-11"
+             email="test1e@teste.com.br"
              name="Usuário de teste2"
-             registration="8adab023-9691-4f32-8fb9-8db1fc84bd34"
-             tel="(81) 98811-6934"/>
+             registration="8p5ab023-9oc1-4f72-8fb9-88bgfc848d34"
+             tel="(81) 98811-6912"/>
 
     <TB_MEDIA_BORROWING is_borrowed="true"
     id_user="1"
@@ -47,6 +47,11 @@
                         id_user="1"
                         created_at="2022-02-03"
                         updated_at="2022-02-07"/>
+
+    <TB_MEDIA_BORROWING is_borrowed="true"
+                        id_user="2"
+                        created_at="2022-05-03"
+                        updated_at="2022-10-08"/>
 
 
     <TB_MEDIA disc_media="book"
@@ -90,6 +95,32 @@
               id_media_borrowing="1"
               id_section="1"/>
 
+    <!--  Registros pra apagar  -->
+    <TB_MEDIA disc_media="book"
+              title="Operação Miami"
+              description="Best seller do new york times"
+              genre="Suspense"
+              stock_quantity="2"
+              id_media_borrowing="3"
+              id_section="2"/>
+
+    <TB_MEDIA disc_media="dvd"
+              title="Calypso Ao Vivo Em Belém do Pará"
+              description="O melhor show ao vivo que você já viu. Cavalo manco!"
+              genre="Classico"
+              stock_quantity="10000"
+              id_media_borrowing="3"
+              id_section="2"/>
+
+    <TB_MEDIA disc_media="newspaper"
+              title="Falta de água no baurro do fundão"
+              description="Mulher declara: 6 semanas sem tomar banho e to cheirosa"
+              genre="Informativo"
+              stock_quantity="1"
+              id_media_borrowing="3"
+              id_section="2"/>
+    <!--  Registros pra apagar  -->
+
     <TB_BOOK
             id_media="1"
               edition="1º"
@@ -108,11 +139,23 @@
             publishing_company="Companhia das Letras"
             total_pages="432"/>
 
+    <TB_BOOK
+            id_media="6"
+            edition="1º"
+            publishing_company="Companhia das Letras"
+            total_pages="325"/>
+
     <TB_DVD
             id_media="3"
             duration="121"
             year_of_dvd="2002"
             artist = "Tobey Maguire"/>
+
+    <TB_DVD
+            id_media="7"
+            duration="300"
+            year_of_dvd="2032"
+            artist = "Joelma do futuro"/>
 
     <TB_NEWSPAPER
             id_media="4"
@@ -120,12 +163,20 @@
             origin_state="Pernambuco"
             release_date = "2021-07-22"/>
 
+    <TB_NEWSPAPER
+            id_media="8"
+            publishing_company="Diário de Pernambuco"
+            origin_state="Pernambuco"
+            release_date = "2022-01-01"/>
+
 
     <TB_AUTHOR name="Matt Haig"/>
     <TB_AUTHOR name="Raphael Montes"/>
+    <TB_AUTHOR name="James Grippando"/>
 
     <TB_AUTHOR_BOOKS id_author="1" id_book="1"/>
     <TB_AUTHOR_BOOKS id_author="2" id_book="2"/>
+    <TB_AUTHOR_BOOKS id_author="3" id_book="6"/>
 
 
 </dataset>

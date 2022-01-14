@@ -16,7 +16,7 @@ public class Author implements Serializable {
     private Long id;
     @Column(name = "NAME")
     private String name;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "TB_AUTHOR_BOOKS", joinColumns = {
             @JoinColumn(name = "ID_AUTHOR")},
             inverseJoinColumns = {

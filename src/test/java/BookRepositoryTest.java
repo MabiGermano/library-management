@@ -1,10 +1,12 @@
 import models.Book;
 import models.LibraryCollection;
+import models.User;
 import org.junit.Assert;
 import org.junit.Test;
 import repositories.BookRepository;
 
 import javax.persistence.CacheRetrieveMode;
+import javax.persistence.TypedQuery;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +33,9 @@ public class BookRepositoryTest extends TestInitiator{
 
     @Test
     public void testingFindBook() {
+String jpql = "SELECT b FROM Book b";
+        TypedQuery<Book> query = em.createQuery(jpql, Book.class);
+        query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         Book book = em.find(Book.class, 1L);
         Assert.assertNotNull(book);
         Assert.assertEquals("A biblioteca da meia noite", book.getTitle());
@@ -58,13 +63,13 @@ public class BookRepositoryTest extends TestInitiator{
         Assert.assertEquals(newNumber, book.getTotalPages());
     }
 
-//    @Test
-//    public void removerBook() {
-//        logger.info("Executando removerBook()");
-//        Book book = em.find(Book.class, 2L);
-//        em.remove(book);
-//        em.flush();
-//        book = em.find(Book.class, 2L);
-//        assertNull(book);
-//    }
+    @Test
+    public void removerBook() {
+        logger.info("Executando removerBook()");
+        Book book = em.find(Book.class, 6L);
+        em.remove(book);
+        em.flush();
+        book = em.find(Book.class, 6L);
+        assertNull(book);
+    }
 }

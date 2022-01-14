@@ -62,10 +62,10 @@ public class MediaBorrowingRepositoryTest extends  TestInitiator{
     @Test
     public void removerMediaBorrowing() {
         logger.info("Executando removerSection()");
-        MediaBorrowing mediaBorrowing = em.find(MediaBorrowing.class, 2L);
+        MediaBorrowing mediaBorrowing = em.find(MediaBorrowing.class, 3L);
         em.remove(mediaBorrowing);
         em.flush();
-        mediaBorrowing = em.find(MediaBorrowing.class, 2L);
+        mediaBorrowing = em.find(MediaBorrowing.class, 3L);
         assertNull(mediaBorrowing);
     }
 }

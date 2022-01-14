@@ -57,14 +57,14 @@ public class AddressRepositoryTest extends TestInitiator{
         Assert.assertEquals("Rua sem nome", address.getStreet());
     }
 
-//    @Test
-//    public void removerAddress() {
-//        Address address = em.find(Address.class, 2L);
-//        Assert.assertNotNull(address);
-//        address.setStreet("Rua sem nome");
-//        em.remove(address);
-//        em.flush();
-//        address = em.find(Address.class, 2L);
-//        assertNull(address);
-//    }
+    @Test
+    public void removerAddress() {
+        Address address = em.find(Address.class, 2L);
+        Assert.assertNotNull(address);
+        address.setStreet("Rua sem nome");
+        em.remove(address);
+        em.flush();
+        address = em.find(Address.class, 2L);
+        assertNull(address);
+    }
 }

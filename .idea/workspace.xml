@@ -5,7 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a447f6-1698-4cdd-89dd-4f9b248b9fae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Media.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/MediaBorrowing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/MediaBorrowing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dbunit/dataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbunit/dataset.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AddressRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AddressRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AuthorRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AuthorRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BookRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BookRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DVDRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DVDRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MediaBorrowingRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MediaBorrowingRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/NewspaperRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NewspaperRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestInitiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestInitiator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dbunit/dataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dbunit/dataset.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Address.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/LibraryCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/LibraryCollection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Media.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Media.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/MediaBorrowing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/MediaBorrowing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +95,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AddressRepositoryTest">
+  <component name="RunManager" selected="JUnit.SectionRepositoryTest">
     <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
       <setting name="displayName" value="" />
       <setting name="bbPath" value="" />
@@ -110,50 +132,47 @@
       <setting name="focusEditor" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="AddressRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibraryCollectionRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AddressRepositoryTest" />
+      <option name="MAIN_CLASS_NAME" value="LibraryCollectionRepositoryTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddressRepositoryTest.removerAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MediaBorrowingRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AddressRepositoryTest" />
-      <option name="METHOD_NAME" value="removerAddress" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="MediaBorrowingRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddressRepositoryTest.testingInsertAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NewspaperRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AddressRepositoryTest" />
-      <option name="METHOD_NAME" value="testingInsertAddress" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="NewspaperRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddressRepositoryTest.testingUpdateAddressFlush" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SectionRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AddressRepositoryTest" />
-      <option name="METHOD_NAME" value="testingUpdateAddressFlush" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="SectionRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddressRepositoryTest.testingUpdateAddressMerge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SectionRepositoryTest.testingFindSection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AddressRepositoryTest" />
-      <option name="METHOD_NAME" value="testingUpdateAddressMerge" />
+      <option name="MAIN_CLASS_NAME" value="SectionRepositoryTest" />
+      <option name="METHOD_NAME" value="testingFindSection" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,11 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AddressRepositoryTest" />
-        <item itemvalue="JUnit.AddressRepositoryTest.testingInsertAddress" />
-        <item itemvalue="JUnit.AddressRepositoryTest.testingUpdateAddressFlush" />
-        <item itemvalue="JUnit.AddressRepositoryTest.testingUpdateAddressMerge" />
-        <item itemvalue="JUnit.AddressRepositoryTest.removerAddress" />
+        <item itemvalue="JUnit.SectionRepositoryTest" />
+        <item itemvalue="JUnit.SectionRepositoryTest.testingFindSection" />
+        <item itemvalue="JUnit.NewspaperRepositoryTest" />
+        <item itemvalue="JUnit.MediaBorrowingRepositoryTest" />
+        <item itemvalue="JUnit.LibraryCollectionRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -191,6 +210,13 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="query.getResultList()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/library_management$AddressRepository.ic" NAME="AddressRepository Coverage Results" MODIFIED="1638222340659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

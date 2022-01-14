@@ -20,12 +20,10 @@ public class AuthorRepositoryTest extends TestInitiator{
     @Test
     public void testingInsertAuthor() {
         Author newAuthor = new Author();
-        newAuthor.setName("Raphael Montes");
+        newAuthor.setName("Raphael Monteiro");
         List<Book> booksList = new ArrayList<Book>();
         booksList.add(em.find(Book.class, 2L));
         booksList.add(em.find(Book.class, 5L));
-        newAuthor.setName("Raphael Montes");
-        newAuthor.setBooks(booksList);
 
         em.persist(newAuthor);
         em.flush();
@@ -34,43 +32,43 @@ public class AuthorRepositoryTest extends TestInitiator{
 
     @Test
     public void testingFindAuthor() {
-        Author author = em.find(Author.class, 1L);
+        Author author = em.find(Author.class, 2L);
         assertNotNull(author);
-        Assert.assertEquals("Matt Haig", author.getName());
+        Assert.assertEquals("Raphael Montes", author.getName());
         Assert.assertEquals(1, author.getBooks().size());
     }
 
     @Test
     public void testingUpdateAuthorMerge() {
         String newName = "Outro author";
-        Author author = em.find(Author.class, 1L);
+        Author author = em.find(Author.class, 2L);
         assertNotNull(author);
         author.setName(newName);
         em.clear();
         em.merge(author);
         em.flush();
-        author = em.find(Author.class, 1L);
+        author = em.find(Author.class, 2L);
         Assert.assertEquals(newName, author.getName());
     }
 
     @Test
     public void testingUpdateAuthorFlush() {
         String newName = "Outro author";
-        Author author = em.find(Author.class, 1L);
+        Author author = em.find(Author.class, 2L);
         assertNotNull(author);
         author.setName(newName);
         em.flush();
-        author = em.find(Author.class, 1L);
+        author = em.find(Author.class, 2L);
         Assert.assertEquals(newName, author.getName());
     }
 
     @Test
     public void removerAuthor() {
         logger.info("Executando removerBook()");
-        Author author = em.find(Author.class, 2L);
+        Author author = em.find(Author.class, 1L);
         em.remove(author);
         em.flush();
-        author = em.find(Author.class, 2L);
+        author = em.find(Author.class, 1L);
         assertNull(author);
     }
 }

@@ -72,10 +72,10 @@ public class DVDRepositoryTest extends TestInitiator{
     @Test
     public void removerDVD() {
         logger.info("Executando removerDVD()");
-        DVD dvd = em.find(DVD.class, 6L);
+        DVD dvd = em.find(DVD.class, 7L);
         em.remove(dvd);
         em.flush();
-        dvd = em.find(DVD.class, 6L);
+        dvd = em.find(DVD.class, 7L);
         assertNull(dvd);
     }
 }
