@@ -7,7 +7,7 @@ import org.junit.Test;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class JpqlTest extends TestInitiator {
+public class MediaJpqlTest extends TestInitiator {
 
     @Test
     public void livrosComMaisde300Paginas(){
@@ -30,6 +30,23 @@ public class JpqlTest extends TestInitiator {
 
         Assert.assertEquals(3, medias.size());
     }
+
+    @Test
+    public void MediasQuePertecemAoUsuario1(){
+        logger.info("Executando MediasQuePertecemAoUsuario1()");
+        String jpql = "SELECT m FROM Media m join m.mediaBorrowing mm join mm.user u where u.id = ?1";
+        TypedQuery<Media> query = em.createQuery(jpql, Media.class);
+        query.setParameter(1, 1L);
+        List<Media> medias = query.getResultList();
+
+        medias.forEach(media -> {
+            Assert.assertEquals(1l, media.getMediaBorrowing().getUser().getId().longValue());
+
+        });
+
+        Assert.assertEquals(5, medias.size());
+    }
+
 
     @Test
     public void MediasTituloComecaComF(){
