@@ -113,13 +113,16 @@
               id_section="2"/>
 
     <TB_MEDIA disc_media="newspaper"
-              title="Falta de água no baurro do fundão"
+              title="Falta de água no bairro do fundão"
               description="Mulher declara: 6 semanas sem tomar banho e to cheirosa"
               genre="Informativo"
               stock_quantity="1"
               id_media_borrowing="3"
               id_section="2"/>
-    <!--  Registros pra apagar  -->
+
+
+
+    <!-- Registros pra apagar - FIM -->
 
     <TB_BOOK
             id_media="1"
