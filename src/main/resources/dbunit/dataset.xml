@@ -14,14 +14,14 @@
             street="Rua Iolanda Rodrigues Sobral"
             zip_code="50690-220"
             city="Recife"
-            state="Pernambuco"
+            state="PE"
             number="550"/>
 
     <TB_ADDRESS
             street="Rua dos bobos"
             zip_code="50690-232"
             city="Recife"
-            state="Pernambuco"
+            state="PE"
             number="55"/>
 
     <TB_USER id_address="1"

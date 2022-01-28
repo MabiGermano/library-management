@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -10,10 +11,15 @@ import java.util.Objects;
 @PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID_MEDIA")
 public class DVD extends Media implements Serializable {
 
+    @NotBlank
     @Column(name="ARTIST")
     private String artist;
+    @NotNull
+    @Min(1)
+    @Max(600)
     @Column(name="DURATION")
     private int duration;
+    @NotBlank
     @Column(name = "YEAR_OF_DVD")
     private String yearOfDvd;
 

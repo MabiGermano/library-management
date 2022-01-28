@@ -1,12 +1,18 @@
 package models;
 
 import org.eclipse.persistence.annotations.CascadeOnDelete;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.UUID;
+
 
 @Entity
 @Table(name = "TB_USER")
@@ -19,18 +25,26 @@ public class User implements Serializable {
     private Long id;
     @Column(name = "NAME")
     private String name;
+    @CPF
     @Column(name = "CPF")
     private String cpf;
     @Column(name = "REGISTRATION")
     private String registration;
+    @NotNull
+    @Pattern(regexp = "([0-9]{2}) [0-9]{5}-[0-9]{4}", message = "{models.User.tel}")
     @Column(name = "TEL")
     private String tel;
+    @NotNull
+    @Valid
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "ID_ADDRESS", referencedColumnName = "ID")
     private Address address;
+    @NotNull
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL, orphanRemoval = true)
     private HashSet<MediaBorrowing> mediaBorrowings;
+    @NotNull
+    @Email
     @Column(name = "EMAIL")
     private String email;
 

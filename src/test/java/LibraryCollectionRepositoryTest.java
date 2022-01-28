@@ -61,13 +61,13 @@ public class LibraryCollectionRepositoryTest extends TestInitiator {
         Assert.assertEquals(newName, libraryCollection.getName());
     }
 
-//    @Test
-//    public void removerLibraryCollection() {
-//        logger.info("Executando removerLibraryCollection()");
-//        LibraryCollection libraryCollection = em.find(LibraryCollection.class, 2L);
-//        em.remove(libraryCollection);
-//        em.flush();
-//        libraryCollection = em.find(LibraryCollection.class, 2L);
-//        assertNull(libraryCollection);
-//    }
+    @Test
+    public void removerLibraryCollection() {
+        logger.info("Executando removerLibraryCollection()");
+        LibraryCollection libraryCollection = em.find(LibraryCollection.class, 2L);
+        em.remove(libraryCollection);
+        em.flush();
+        libraryCollection = em.find(LibraryCollection.class, 2L);
+        assertNull(libraryCollection);
+    }
 }

@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +14,12 @@ public class LibraryCollection implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     @OneToMany(mappedBy = "libraryCollection", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
 
     private List<Section> sections = new ArrayList<Section>();
-
+    @NotBlank
     @Column(name = "NAME")
     private String name;
 

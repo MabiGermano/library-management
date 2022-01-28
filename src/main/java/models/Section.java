@@ -2,6 +2,9 @@ package models;
 
 import javax.persistence.*;
 import javax.print.attribute.standard.MediaSize;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
@@ -13,11 +16,14 @@ public class Section implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
+    @Size(max = 100)
     @Column(name = "TITLE")
     private String title;
     @OneToMany(mappedBy = "section", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
     private HashSet<Media> medias;
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ID_LIBRARY_COLLECTION", referencedColumnName = "ID")
     private LibraryCollection libraryCollection;

@@ -1,6 +1,9 @@
 package models;
 
+import models.validators.ValidState;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -11,16 +14,29 @@ public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
+    @Size(max = 150)
     @Column(name="STREET")
     private String street;
+    @NotNull
+    @Min(1)
+    @Max(99999)
     @Column(name="NUMBER")
     private int number;
+    @NotNull
+    @Pattern(regexp = "[0-9]{5}-[0-9]{3}", message = "{models.Address.zipCode}")
     @Column(name="ZIP_CODE")
     private String zipCode;
+    @NotBlank
+    @Size(max = 150)
     @Column(name="CITY")
     private String city;
+    @NotBlank
+    @ValidState
+    @Size(min = 2, max = 2)
     @Column(name="STATE")
     private String state;
+
     @OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
     private User user;
 

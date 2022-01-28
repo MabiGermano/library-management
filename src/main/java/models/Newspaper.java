@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -11,10 +13,14 @@ import java.util.Objects;
 @PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID_MEDIA")
 public class Newspaper extends Media implements Serializable {
 
+    @NotBlank
     @Column(name = "PUBLISHING_COMPANY")
     private String publishingCompany;
+    @Past
+    @Temporal(TemporalType.DATE)
     @Column(name = "RELEASE_DATE")
     private Date releaseDate;
+    @NotBlank
     @Column(name = "ORIGIN_STATE")
     private String originState;
 

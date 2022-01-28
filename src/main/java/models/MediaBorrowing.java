@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
@@ -13,6 +15,7 @@ public class MediaBorrowing implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_USER", referencedColumnName = "ID")
     private User user;
@@ -21,8 +24,11 @@ public class MediaBorrowing implements Serializable {
     @OneToMany(mappedBy = "mediaBorrowing", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL, orphanRemoval = true)
     private HashSet<Media> medias;
+    @Past
+    @Temporal(TemporalType.DATE)
     @Column(name = "CREATED_AT")
     private Date createdAt;
+    @Temporal(TemporalType.DATE)
     @Column(name = "UPDATED_AT")
     private Date updatedAt;
 

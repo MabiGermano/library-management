@@ -3,6 +3,9 @@ package models;
 import com.sun.jdi.NativeMethodException;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -16,17 +19,25 @@ public abstract class Media implements Serializable {
     @Column(name = "ID_MEDIA")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
+    @NotBlank
+    @Size(max = 100)
     @Column(name = "TITLE")
     protected String title;
+    @NotBlank
+    @Size(max = 40)
     @Column(name = "GENRE")
     protected String genre;
+    @NotBlank
+    @Size(max = 200)
     @Column(name = "DESCRIPTION")
     protected String description;
     @Column(name = "STOCK_QUANTITY")
     protected int stockQuantity;
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_MEDIA_BORROWING", referencedColumnName = "ID")
     protected MediaBorrowing mediaBorrowing;
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_SECTION", referencedColumnName = "ID")
     protected Section section;

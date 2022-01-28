@@ -21,7 +21,7 @@ public class AddressRepositoryTest extends TestInitiator{
         newAddress.setStreet("Rua Iolanda Rodrigues Sobral1");
         newAddress.setZipCode("50690-220");
         newAddress.setCity("Recife");
-        newAddress.setState("Pernambuco");
+        newAddress.setState("PE");
         newAddress.setNumber(550);
 
         em.persist(newAddress);
