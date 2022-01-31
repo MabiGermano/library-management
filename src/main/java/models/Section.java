@@ -16,7 +16,7 @@ public class Section implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+    @NotBlank(message = "Titulo não pode ser vazio")
     @Size(max = 100)
     @Column(name = "TITLE")
     private String title;

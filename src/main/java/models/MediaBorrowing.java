@@ -15,7 +15,7 @@ public class MediaBorrowing implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+    @NotNull(message = "User não pode ser nulo")
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_USER", referencedColumnName = "ID")
     private User user;

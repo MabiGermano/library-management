@@ -23,7 +23,7 @@ public abstract class Media implements Serializable {
     @Size(max = 100)
     @Column(name = "TITLE")
     protected String title;
-    @NotBlank
+    @NotBlank(message = "Genero não pode ser vazio")
     @Size(max = 40)
     @Column(name = "GENRE")
     protected String genre;
@@ -33,11 +33,9 @@ public abstract class Media implements Serializable {
     protected String description;
     @Column(name = "STOCK_QUANTITY")
     protected int stockQuantity;
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_MEDIA_BORROWING", referencedColumnName = "ID")
     protected MediaBorrowing mediaBorrowing;
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_SECTION", referencedColumnName = "ID")
     protected Section section;

@@ -33,7 +33,7 @@ public class Address implements Serializable {
     private String city;
     @NotBlank
     @ValidState
-    @Size(min = 2, max = 2)
+    @Size(min = 2, max = 2, message = "Estado deve ter 2 caracteres")
     @Column(name="STATE")
     private String state;
 

@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
@@ -23,15 +24,16 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "Nome do usuário não deve ser branco")
     @Column(name = "NAME")
     private String name;
-    @CPF
+    @CPF (message = "O formato do cpf deve ser xxx.xxx.xxx-xx")
     @Column(name = "CPF")
     private String cpf;
     @Column(name = "REGISTRATION")
     private String registration;
     @NotNull
-    @Pattern(regexp = "([0-9]{2}) [0-9]{5}-[0-9]{4}", message = "{models.User.tel}")
+    @Pattern(regexp = "([0-9]{2}) [0-9]{5}-[0-9]{4}", message = "O formato do numero de telefone deve ser (xx) xxxxx-xxxx")
     @Column(name = "TEL")
     private String tel;
     @NotNull

@@ -12,11 +12,10 @@ import java.util.Objects;
 @PrimaryKeyJoinColumn(name="ID_MEDIA", referencedColumnName = "ID_MEDIA")
 public class Book extends Media implements Serializable {
 
-    @Min(1)
-    @Max(99999)
+    @Min(value = 1, message = "Páginas deve ter no mínimo 1")
+    @Max(value = 99999, message = "Páginas deve ter no máximo 99999")
     @Column(name="TOTAL_PAGES")
     private int totalPages;
-    @NotNull
     @ManyToMany(mappedBy = "books")
     private List<Author> authors;
     @NotBlank
