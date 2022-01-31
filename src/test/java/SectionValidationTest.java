@@ -1,46 +1,48 @@
-import models.*;
+import models.Author;
+import models.Book;
+import models.LibraryCollection;
+import models.Section;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.persistence.TypedQuery;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import java.util.Date;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
-public class MediaBorrowingValidationTest extends TestInitiator{
+public class SectionValidationTest extends TestInitiator {
     @Test(expected = ConstraintViolationException.class)
-    public void persistInvalidMediaBorrowing() {
+    public void persistInvalidSection() {
 
-        MediaBorrowing newMediaBorrowing = new MediaBorrowing();
+        Section newSection = new Section();
         try {
-            newMediaBorrowing.setUser(null);
-            newMediaBorrowing.setBorrowed(true);
+            newSection.setTitle("");
+            newSection.setLibraryCollection(em.find(LibraryCollection.class, 1L));
 
-            em.persist(newMediaBorrowing);
+            em.persist(newSection);
             em.flush();
 
         } catch (ConstraintViolationException ex) {
             Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
             constraintViolations.stream().forEach(cv -> System.out.println(cv.getInvalidValue()));
             Assert.assertEquals(1, constraintViolations.size());
-            Assert.assertNull(newMediaBorrowing.getId());
+            Assert.assertNull(newSection.getId());
             throw ex;
         }
     }
 
     @Test(expected = ConstraintViolationException.class)
-    public void updateInvalidMediaBorrowing() {
-        MediaBorrowing mediaBorrowing = em.find(MediaBorrowing.class, 1L);
-        mediaBorrowing.setUser(null);
+    public void updateInvalidSection() {
+        Section section = em.find(Section.class, 2L);
+        section.setTitle("");
 
         try {
             em.flush();
         } catch (ConstraintViolationException ex) {
             ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
 
-            Assert.assertEquals("User não pode ser nulo", violation.getMessage());
+            Assert.assertEquals("Titulo não pode ser vazio", violation.getMessage());
             Assert.assertEquals(1, ex.getConstraintViolations().size());
             throw ex;
         }

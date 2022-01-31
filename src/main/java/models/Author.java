@@ -16,7 +16,7 @@ public class Author implements Serializable {
     @Column(name = "ID_AUTHOR")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+    @NotBlank(message = "Nome não deve ser vazio")
     @Column(name = "NAME")
     private String name;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

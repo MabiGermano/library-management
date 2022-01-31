@@ -43,7 +43,7 @@ public class LibraryCollectionValidationTest extends TestInitiator{
         } catch (ConstraintViolationException ex) {
             ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
 
-            Assert.assertEquals("must not be blank", violation.getMessage());
+            Assert.assertEquals("Nome não pode ser vazio", violation.getMessage());
             Assert.assertEquals(1, ex.getConstraintViolations().size());
             throw ex;
         }

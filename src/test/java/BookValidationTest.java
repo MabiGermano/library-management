@@ -45,7 +45,7 @@ public class BookValidationTest extends TestInitiator {
         } catch (ConstraintViolationException ex) {
             ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
 
-            Assert.assertEquals("must be less than or equal to 99999", violation.getMessage());
+            Assert.assertEquals("Páginas deve ter no máximo 99999", violation.getMessage());
             Assert.assertEquals(1, ex.getConstraintViolations().size());
             throw ex;
         }

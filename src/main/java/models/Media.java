@@ -23,7 +23,7 @@ public abstract class Media implements Serializable {
     @Size(max = 100)
     @Column(name = "TITLE")
     protected String title;
-    @NotBlank
+    @NotBlank(message = "Genero não pode ser vazio")
     @Size(max = 40)
     @Column(name = "GENRE")
     protected String genre;

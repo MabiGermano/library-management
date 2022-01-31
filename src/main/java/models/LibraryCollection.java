@@ -19,7 +19,7 @@ public class LibraryCollection implements Serializable {
             cascade = CascadeType.ALL, orphanRemoval = true)
 
     private List<Section> sections = new ArrayList<Section>();
-    @NotBlank
+    @NotBlank(message = "Nome não pode ser vazio")
     @Column(name = "NAME")
     private String name;
 

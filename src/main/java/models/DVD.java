@@ -15,8 +15,8 @@ public class DVD extends Media implements Serializable {
     @Column(name="ARTIST")
     private String artist;
     @NotNull
-    @Min(1)
-    @Max(600)
+    @Min(value = 1, message = "Duração mínima deve ser de 1")
+    @Max(value = 600, message = "Duração máxima deve ser de 600")
     @Column(name="DURATION")
     private int duration;
     @NotBlank

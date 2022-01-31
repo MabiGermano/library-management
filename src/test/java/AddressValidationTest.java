@@ -46,7 +46,7 @@ public class AddressValidationTest extends TestInitiator{
         } catch (ConstraintViolationException ex) {
             ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
 
-            Assert.assertEquals("size must be between 2 and 2", violation.getMessage());
+            Assert.assertEquals("Estado deve ter 2 caracteres", violation.getMessage());
             Assert.assertEquals(2, ex.getConstraintViolations().size());
             throw ex;
         }

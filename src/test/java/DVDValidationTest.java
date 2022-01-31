@@ -44,7 +44,7 @@ public class DVDValidationTest extends TestInitiator{
         } catch (ConstraintViolationException ex) {
             ConstraintViolation violation = ex.getConstraintViolations().iterator().next();
 
-            Assert.assertEquals("must be less than or equal to 600", violation.getMessage());
+            Assert.assertEquals("Duração máxima deve ser de 600", violation.getMessage());
             Assert.assertEquals(1, ex.getConstraintViolations().size());
             throw ex;
         }
