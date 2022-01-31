@@ -5,28 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1a447f6-1698-4cdd-89dd-4f9b248b9fae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/AddressValidationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/BookValidationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/DVDValidationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/LibraryCollectionValidationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/MediaBorrowingValidationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library-management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/library-management.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/MediaBorrowing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/MediaBorrowing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dbunit/dataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dbunit/dataset.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AddressRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AddressRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AuthorRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AuthorRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BookRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BookRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DVDRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DVDRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MediaBorrowingRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MediaBorrowingRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/NewspaperRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/NewspaperRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestInitiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestInitiator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dbunit/dataset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dbunit/dataset.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Address.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Author.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Author.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/DVD.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/DVD.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/LibraryCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/LibraryCollection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/Media.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Media.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/MediaBorrowing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/MediaBorrowing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Newspaper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Newspaper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Section.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Section.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +92,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SectionRepositoryTest">
+  <component name="RunManager" selected="JUnit.MediaBorrowingValidationTest.updateInvalidMediaBorrowing">
     <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
       <setting name="displayName" value="" />
       <setting name="bbPath" value="" />
@@ -132,47 +129,51 @@
       <setting name="focusEditor" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="LibraryCollectionRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DVDValidationTest.updateInvalidDVD" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LibraryCollectionRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="DVDValidationTest" />
+      <option name="METHOD_NAME" value="updateInvalidDVD" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MediaBorrowingRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibraryCollectionValidationTest.persistInvalidDVD" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MediaBorrowingRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="LibraryCollectionValidationTest" />
+      <option name="METHOD_NAME" value="persistInvalidDVD" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NewspaperRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LibraryCollectionValidationTest.updateInvalidLibraryCollection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NewspaperRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="LibraryCollectionValidationTest" />
+      <option name="METHOD_NAME" value="updateInvalidLibraryCollection" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SectionRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MediaBorrowingValidationTest.persistInvalidMediaBorrowing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SectionRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="MediaBorrowingValidationTest" />
+      <option name="METHOD_NAME" value="persistInvalidMediaBorrowing" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SectionRepositoryTest.testingFindSection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MediaBorrowingValidationTest.updateInvalidMediaBorrowing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="library-management" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SectionRepositoryTest" />
-      <option name="METHOD_NAME" value="testingFindSection" />
+      <option name="MAIN_CLASS_NAME" value="MediaBorrowingValidationTest" />
+      <option name="METHOD_NAME" value="updateInvalidMediaBorrowing" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -180,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SectionRepositoryTest" />
-        <item itemvalue="JUnit.SectionRepositoryTest.testingFindSection" />
-        <item itemvalue="JUnit.NewspaperRepositoryTest" />
-        <item itemvalue="JUnit.MediaBorrowingRepositoryTest" />
-        <item itemvalue="JUnit.LibraryCollectionRepositoryTest" />
+        <item itemvalue="JUnit.MediaBorrowingValidationTest.updateInvalidMediaBorrowing" />
+        <item itemvalue="JUnit.MediaBorrowingValidationTest.persistInvalidMediaBorrowing" />
+        <item itemvalue="JUnit.LibraryCollectionValidationTest.updateInvalidLibraryCollection" />
+        <item itemvalue="JUnit.LibraryCollectionValidationTest.persistInvalidDVD" />
+        <item itemvalue="JUnit.DVDValidationTest.updateInvalidDVD" />
       </list>
     </recent_temporary>
   </component>

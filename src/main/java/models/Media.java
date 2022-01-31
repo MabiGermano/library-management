@@ -33,11 +33,9 @@ public abstract class Media implements Serializable {
     protected String description;
     @Column(name = "STOCK_QUANTITY")
     protected int stockQuantity;
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_MEDIA_BORROWING", referencedColumnName = "ID")
     protected MediaBorrowing mediaBorrowing;
-    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_SECTION", referencedColumnName = "ID")
     protected Section section;

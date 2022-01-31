@@ -16,7 +16,6 @@ public class Book extends Media implements Serializable {
     @Max(99999)
     @Column(name="TOTAL_PAGES")
     private int totalPages;
-    @NotNull
     @ManyToMany(mappedBy = "books")
     private List<Author> authors;
     @NotBlank
